@@ -1,0 +1,51 @@
+<section class="auth-form">
+  <h2 class="auth-header">Login</h2>
+  <h3 class="formError">{{errorMsg}}</h3>
+
+  <div>
+    Email:
+    <input class="form-input" type="text" autofocus="true" ng-model="account.email">
+  </div>
+
+  <div>
+    Password:
+    <input class="form-input" type="password" ng-model="account.password">
+  </div>
+
+  <div>
+    <button class="button loginBtn" ng-click="login()">Login</button>
+  </div>
+</section>
+
+<h2 class="or-header">
+  <span>OR</span>
+</h2>
+
+<section class="auth-form registerSection">
+  <h2 class="auth-header">Register as a new user</h2>
+  <h3 class="formError">{{errorMsg}}</h3>
+
+  <div>
+    Username:
+    <input class="form-input" type="text" autofocus="true" ng-model="account.username">
+  </div>
+
+  <div>
+    Email:
+    <input class="form-input" type="text" autofocus="true" ng-model="account.email">
+  </div>
+
+  <div>
+    Password:
+    <input class="form-input" type="password" ng-model="account.password">
+  </div>
+
+  <div>
+    Password Confirmation:
+    <input class="form-input" type="password" ng-model="account.passwordConf">
+  </div>
+
+  <div>
+    <button class="button registerBtn" ng-click="register()">Register</button>
+  </div>
+</section>
