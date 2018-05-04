@@ -3,6 +3,10 @@
 angular.module('StudyU', ['ngRoute']).config($routeProvider => {
   //
   $routeProvider
+    .when('/home', {
+      templateUrl: 'partials/home.html',
+      controller: 'HomeCtrl'
+    })
     .when('/', {
       templateUrl: 'partials/auth-form.html',
       controller: 'AuthCtrl'

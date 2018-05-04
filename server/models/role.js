@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       title: DataTypes.STRING
     },
-    { tableName: 'roles' }
+    { tableName: 'roles', timestamps: false }
   );
   Role.associate = function(models) {
     Role.hasMany(models.User, {

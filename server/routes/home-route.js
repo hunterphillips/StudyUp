@@ -2,7 +2,8 @@
 const { Router } = require('express');
 const router = Router();
 
-router.use(require('./auth-route'));
-router.use(require('./home-route'));
+const { getCourseList } = require('../controllers/homeCtrl.js');
+
+router.get('/home', getCourseList);
 
 module.exports = router;

@@ -1,8 +1,13 @@
 'use strict';
-
 const models = require('./server/models');
+let { users } = require('./server/seeders/data/users');
+let { courses } = require('./server/seeders/data/courses');
 
 const { generateHash } = require('./server/config/passport.js');
+// hash user data passwords
+users.forEach(user => {
+  user['password'] = generateHash(user['password']);
+});
 
 models.sequelize
   .sync({ force: true })
@@ -13,24 +18,21 @@ models.sequelize
   })
   .then(() => {
     return models.Role.create({
-      title: 'user'
+      title: 'student'
     });
   })
   .then(() => {
-    return models.User.create({
-      username: 'John',
-      email: 'a@a.com',
-      role_id: 1,
-      password: generateHash('password123')
-    });
+    return models.User.bulkCreate(users);
   })
   .then(() => {
-    return models.User.create({
-      username: 'Ben',
-      email: 'a@b.com',
-      role_id: 2,
-      password: generateHash('password123')
-    });
+    return models.Course.bulkCreate(courses);
+  })
+  // add User 1 to Course 1
+  .then(() => {
+    return models.User.findById(1);
+  })
+  .then(foundUser => {
+    return foundUser.addCourse(1);
   })
   .then(() => {
     process.exit();

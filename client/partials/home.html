@@ -1,0 +1,11 @@
+<div>
+  <h2>Main Menu</h2>
+  <h3>Hello {{user.username}}</h3>
+
+  <div class="course-containter">
+    <h1>Your Courses</h1>
+    <div class="course-card" ng-repeat="course in courses">
+      <a href=/courses/{{course.id}}>{{course.title}}</a>
+    </div>
+  </div>
+</div>

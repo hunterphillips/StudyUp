@@ -11,9 +11,7 @@
     "dev": "concurrently \"nodemon main.js\" \"rerun-script\""
   },
   "watches": {
-    "sass": [
-      "client/sass/*.scss"
-    ],
+    "sass": ["client/sass/*.scss"],
     "lint": "**/*.js"
   },
   "repository": {
@@ -42,7 +40,9 @@
     "passport-local": "^1.0.0",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
-    "rerun-script": "^0.6.0",
     "sequelize": "^4.37.6"
+  },
+  "devDependencies": {
+    "rerun-script": "^0.6.0"
   }
 }

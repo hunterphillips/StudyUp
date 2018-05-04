@@ -3,15 +3,13 @@
   <h3 class="formError">{{errorMsg}}</h3>
 
   <div>
-    Email:
-    <input class="form-input" type="text" autofocus="true" ng-model="account.email">
+    <!-- Email: -->
+    <input placeholder="Email" class="form-input" type="text" autofocus="true" ng-model="account.email">
   </div>
-
   <div>
-    Password:
-    <input class="form-input" type="password" ng-model="account.password">
+    <!-- Password: -->
+    <input placeholder="Password" class="form-input" type="password" ng-model="account.password">
   </div>
-
   <div>
     <button class="button loginBtn" ng-click="login()">Login</button>
   </div>
@@ -22,27 +20,31 @@
 </h2>
 
 <section class="auth-form registerSection">
-  <h2 class="auth-header">Register as a new user</h2>
+  <h2 class="auth-header">Register a new account</h2>
   <h3 class="formError">{{errorMsg}}</h3>
 
-  <div>
-    Username:
-    <input class="form-input" type="text" autofocus="true" ng-model="account.username">
+  <div class="role-select-wrap">
+    <!-- Role -->
+    <label for "student" class="role-label">Student</label>
+    <input class="radio" type="radio" name="student" value=2 ng-model="newAccount.role">
+    <label for "administrator" class="role-label">Admin</label>
+    <input class="radio" type="radio" name="administrator" value=1 ng-model="newAccount.role">
   </div>
-
   <div>
-    Email:
-    <input class="form-input" type="text" autofocus="true" ng-model="account.email">
+    <!-- Username: -->
+    <input placeholder="Username" class="form-input" type="text" autofocus="true" ng-model="newAccount.username">
   </div>
-
   <div>
-    Password:
-    <input class="form-input" type="password" ng-model="account.password">
+    <!-- Email: -->
+    <input placeholder="Email" class="form-input" type="text" autofocus="true" ng-model="newAccount.email">
   </div>
-
   <div>
-    Password Confirmation:
-    <input class="form-input" type="password" ng-model="account.passwordConf">
+    <!-- Password: -->
+    <input placeholder="Password" class="form-input" type="password" ng-model="newAccount.password">
+  </div>
+  <div>
+    <!-- Password Confirmation: -->
+    <input placeholder="Confirm password" class="form-input" type="password" ng-model="newAccount.passwordConf">
   </div>
 
   <div>
