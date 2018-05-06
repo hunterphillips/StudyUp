@@ -80,7 +80,7 @@ const LoginStrategy = new Strategy(
     User = req.app.get('models').User;
 
     const isValidPassword = (userpass, password) => {
-      console.log('isValidPassword', userpass, password);
+      // console.log('isValidPassword', userpass, password);
       // hashes the passed-in password and then compares it to the hashed password fetched from the db
       return bCrypt.compareSync(password, userpass);
     };
@@ -135,7 +135,7 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser(({ id }, done) => {
   // console.log('user arg', id);
   User.findById(id).then(user => {
-    console.log('Found User in deserielize method', user.get());
+    // console.log('Found User in deserielize method', user.get());
     if (user) {
       done(null, user.get());
     } else {

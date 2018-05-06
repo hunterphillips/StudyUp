@@ -1,0 +1,28 @@
+{
+  "quizzes": [
+    {
+      "title": "quiz_1",
+      "course_id": 1
+    },
+    {
+      "title": "quiz_2",
+      "course_id": 1
+    },
+    {
+      "title": "quiz_3",
+      "course_id": 1
+    },
+    {
+      "title": "quiz_4",
+      "course_id": 2
+    },
+    {
+      "title": "quiz_5",
+      "course_id": 2
+    },
+    {
+      "title": "quiz_6",
+      "course_id": 2
+    }
+  ]
+}

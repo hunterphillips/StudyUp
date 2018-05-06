@@ -1,0 +1,72 @@
+{
+  "questions": [
+    {
+      "quiz_id": 1,
+      "answer_id": 1,
+      "description":
+        "Demagogic Senator from Wisconsin, who charged that the State Department and the US Army were harboring communists."
+    },
+    {
+      "quiz_id": 1,
+      "answer_id": 5,
+      "description":
+        "Place in China where students' hopes of democracy were brutally crushed."
+    },
+    {
+      "quiz_id": 2,
+      "answer_id": 9,
+      "description":
+        "FDR's order to place Japanese Americans in Internment Camps."
+    },
+    {
+      "quiz_id": 2,
+      "answer_id": 13,
+      "description":
+        "Aircraft known for dropping the first nuclear bomb in WWII."
+    },
+    {
+      "quiz_id": 3,
+      "answer_id": 17,
+      "description":
+        "Which one of these was not a beach landing site in the Invasion of Normandy?"
+    },
+    {
+      "quiz_id": 3,
+      "answer_id": 21,
+      "description":
+        "To what political party did Abraham Lincoln belong when elected POTUS?"
+    },
+    {
+      "quiz_id": 4,
+      "answer_id": 25,
+      "description":
+        "Which organelle may have allowed early eukaryotes to make food and produce oxygen?"
+    },
+    {
+      "quiz_id": 4,
+      "answer_id": 29,
+      "description":
+        "Robert Hooke was the first person to observe cells. He observed these cells in "
+    },
+    {
+      "quiz_id": 5,
+      "answer_id": 33,
+      "description": "Cell size is limited by"
+    },
+    {
+      "quiz_id": 5,
+      "answer_id": 37,
+      "description": "All cells have the following:"
+    },
+    {
+      "quiz_id": 6,
+      "answer_id": 41,
+      "description": "What shape are Spirillum bacteria?"
+    },
+    {
+      "quiz_id": 6,
+      "answer_id": 45,
+      "description": "The lipopolysaccharide layer acts as a(n)"
+    }
+  ]
+}

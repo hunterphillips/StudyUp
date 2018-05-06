@@ -1,0 +1,197 @@
+{
+  "answers": [
+    {
+      "question_id": 1,
+      "description": "Joesph McCarthy"
+    },
+    {
+      "question_id": 1,
+      "description": "Joseph Stalin"
+    },
+    {
+      "question_id": 1,
+      "description": "Neville Chamberlain"
+    },
+    {
+      "question_id": 1,
+      "description": "Vladimir Lenin"
+    },
+    {
+      "question_id": 2,
+      "description": "Tiananmen Square"
+    },
+    {
+      "question_id": 2,
+      "description": "Alsace-Lorraine"
+    },
+    {
+      "question_id": 2,
+      "description": "Hiroshima"
+    },
+    {
+      "question_id": 2,
+      "description": "Kent Space"
+    },
+    {
+      "question_id": 3,
+      "description": "Executive Order 9066"
+    },
+    {
+      "question_id": 3,
+      "description": "Executive Order 9981"
+    },
+    {
+      "question_id": 3,
+      "description": "The Munich Agreement"
+    },
+    {
+      "question_id": 3,
+      "description": "Tripartite Pact"
+    },
+    {
+      "question_id": 4,
+      "description": "Enola Gay"
+    },
+    {
+      "question_id": 4,
+      "description": "Bockscar"
+    },
+    {
+      "question_id": 4,
+      "description": "Paul Tibbets"
+    },
+    {
+      "question_id": 4,
+      "description": "Fat Boy"
+    },
+    {
+      "question_id": 5,
+      "description": "Silver"
+    },
+    {
+      "question_id": 5,
+      "description": "Gold"
+    },
+    {
+      "question_id": 5,
+      "description": "Juno"
+    },
+    {
+      "question_id": 5,
+      "description": "Sword"
+    },
+    {
+      "question_id": 6,
+      "description": "Republican"
+    },
+    {
+      "question_id": 6,
+      "description": "Independent"
+    },
+    {
+      "question_id": 6,
+      "description": "Whig"
+    },
+    {
+      "question_id": 6,
+      "description": "Democrat"
+    },
+    {
+      "question_id": 7,
+      "description": "Golgi apparatus"
+    },
+    {
+      "question_id": 7,
+      "description": "central vacuole"
+    },
+    {
+      "question_id": 7,
+      "description": "plastids"
+    },
+    {
+      "question_id": 7,
+      "description": "cell wall"
+    },
+    {
+      "question_id": 8,
+      "description": "a piece of cork"
+    },
+    {
+      "question_id": 8,
+      "description": "a slice of honeycomb"
+    },
+    {
+      "question_id": 8,
+      "description": "human blood"
+    },
+    {
+      "question_id": 8,
+      "description": "plaque from his own teeth"
+    },
+    {
+      "question_id": 9,
+      "description": "the size of the plasma membrane"
+    },
+    {
+      "question_id": 9,
+      "description": "amount of cytoplasm"
+    },
+    {
+      "question_id": 9,
+      "description":
+        "cell’s ability to get rid of wastescell’s ability to get rid of wastes"
+    },
+    {
+      "question_id": 9,
+      "description": "the size of the nucleus"
+    },
+    {
+      "question_id": 10,
+      "description": "plasma membrane, cytoplasm, and ribosomes"
+    },
+    {
+      "question_id": 10,
+      "description": "plasma membrane, nucleus, and DNA"
+    },
+    {
+      "question_id": 10,
+      "description": "DNA, ribosomes, and cell wall"
+    },
+    {
+      "question_id": 10,
+      "description": "plasma membrane, cytoplasm, and nucleus"
+    },
+    {
+      "question_id": 11,
+      "description": "Spiral"
+    },
+    {
+      "question_id": 11,
+      "description": "Rod"
+    },
+    {
+      "question_id": 11,
+      "description": "Round"
+    },
+    {
+      "question_id": 11,
+      "description": "Cone"
+    },
+    {
+      "question_id": 12,
+      "description": "endotoxin"
+    },
+    {
+      "question_id": 12,
+      "description": "antigen"
+    },
+    {
+      "question_id": 12,
+      "description": "waterproof layer"
+    },
+    {
+      "question_id": 12,
+      "description": "insulator"
+    }
+  ]
+}

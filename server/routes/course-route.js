@@ -4,6 +4,6 @@ const router = Router();
 
 const { getCourseById } = require('../controllers/courseCtrl.js');
 
-router.get('/courses/:id', getCourseById);
+router.get('/course/:id', getCourseById);
 
 module.exports = router;

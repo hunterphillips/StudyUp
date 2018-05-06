@@ -6,14 +6,14 @@ angular.module('StudyU').factory('AuthFactory', ($q, $http, $rootScope) => {
   return {
     createUser(userObj) {
       return $http.post('/register', userObj).then(userData => {
-        console.log('new user added', userData);
+        // console.log('new user added', userData);
         currentUser = userData;
         return userData.data;
       });
     },
 
     loginUser(userObj) {
-      console.log('userObj', userObj);
+      // console.log('userObj', userObj);
       return $http.post('/login', userObj).then(user => {
         currentUser = user.data;
         $http.get('/home');
@@ -43,7 +43,7 @@ angular.module('StudyU').factory('AuthFactory', ($q, $http, $rootScope) => {
     },
 
     broadcastUserLogin(user) {
-      console.log('calling broadcast', user);
+      // console.log('calling broadcast', user);
       $rootScope.$broadcast('handleBroadcast', user);
     }
   };

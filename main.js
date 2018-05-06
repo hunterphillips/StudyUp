@@ -44,3 +44,12 @@ app.use(routes);
 app.listen(3000, () => {
   console.log(`server listening on port ${port}`);
 });
+
+// QUIZ DATA OPTIONS
+
+// Your Quizlet Client ID jP7k2hxe2Y
+// Your Secret Key (for user auth only):kC8TtMyu4XTFsKmnB5yAaG (reset)
+
+// https://opentdb.com/api_config.php
+
+// https://b.socrative.com/teacher/   ***** Current Choice ****

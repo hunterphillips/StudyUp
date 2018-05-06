@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
     Course.belongsToMany(models.User, {
       through: 'user_courses'
     });
+    Course.hasMany(models.Quiz, {
+      foreignKey: 'course_id',
+      constraints: false
+    });
   };
   return Course;
 };

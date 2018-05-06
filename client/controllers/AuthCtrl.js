@@ -7,7 +7,7 @@ angular
     $scope.register = () => {
       $scope.errorMsg = '';
       if ($scope.newAccount.password !== $scope.newAccount.passwordConf) {
-        console.log('bad match');
+        // console.log('bad match');
         $scope.errorMsg =
           "Password and confirmation don't match. Please try again";
         return null;

@@ -1,7 +1,6 @@
 'use strict';
 
 module.exports.getCourseList = (req, res, next) => {
-  console.log('homeCtrl do something eventually');
   const User = req.app.get('models').User;
   User.findById(req.user.id).then(user => {
     user.getCourses().then(courses => {

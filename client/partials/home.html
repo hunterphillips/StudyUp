@@ -4,8 +4,10 @@
 
   <div class="course-containter">
     <h1>Your Courses</h1>
+
     <div class="course-card" ng-repeat="course in courses">
-      <a href=/courses/{{course.id}}>{{course.title}}</a>
+      <a ng-click="goToClass()">{{course.title}}</a>
     </div>
+
   </div>
 </div>
