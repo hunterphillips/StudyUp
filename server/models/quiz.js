@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'course_id',
       constraints: false
     });
+    Quiz.hasMany(models.Question, {
+      foreignKey: 'quiz_id',
+      constraints: false
+    });
   };
   return Quiz;
 };
