@@ -49,24 +49,58 @@
         "Robert Hooke was the first person to observe cells. He observed these cells in "
     },
     {
-      "quiz_id": 5,
+      "quiz_id": 4,
       "answer_id": 33,
-      "description": "Cell size is limited by"
+      "description": "Cell size is limited by the"
     },
     {
-      "quiz_id": 5,
+      "quiz_id": 4,
       "answer_id": 37,
       "description": "All cells have the following:"
     },
     {
-      "quiz_id": 6,
+      "quiz_id": 5,
       "answer_id": 41,
       "description": "What shape are Spirillum bacteria?"
     },
     {
-      "quiz_id": 6,
+      "quiz_id": 5,
       "answer_id": 45,
       "description": "The lipopolysaccharide layer acts as a(n)"
+    },
+    {
+      "quiz_id": 6,
+      "answer_id": 49,
+      "description":
+        "Target organs respond to water-soluble hormones because of the presence of _______ on the cell membrane surface."
+    },
+    {
+      "quiz_id": 6,
+      "answer_id": 53,
+      "description":
+        "This hormone is important in sodium regulation and therefore water balance."
+    },
+    {
+      "quiz_id": 6,
+      "answer_id": 57,
+      "description": "Acromegaly is a result of hypersecretion of this hormone."
+    },
+    {
+      "quiz_id": 6,
+      "answer_id": 61,
+      "description": "Exophthalmos is a sign of hypersecretion of this hormone."
+    },
+    {
+      "quiz_id": 5,
+      "answer_id": 65,
+      "description":
+        "Bacteria which have an optimum temperature range between 20 - 40 degrees C are called:"
+    },
+    {
+      "quiz_id": 5,
+      "answer_id": 69,
+      "description":
+        "Bacteria which are killed in the presence of oxygen are called:"
     }
   ]
 }

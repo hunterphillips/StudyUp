@@ -1,7 +1,20 @@
 'use strict';
-angular.module('StudyU').factory('HomeFactory', $http => {
-  const getUserCourses = () => {
-    return $http.get(`/home`);
+angular.module('StudyU').factory('HomeFactory', ($http, $location) => {
+  return {
+    getUserCourses(id) {
+      if (id) {
+        return $http.get(`/home`).then(results => {
+          return results.data;
+        });
+      } else {
+        $location.path(`/`);
+      }
+    },
+
+    addUserCourse(course) {
+      return $http.post('/home', course).then(data => {
+        return data;
+      });
+    }
   };
-  return { getUserCourses };
 });

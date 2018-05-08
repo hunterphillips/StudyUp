@@ -1,4 +1,23 @@
-<h1>Quiz Page</h1>
-<div ng-repeat="question in questions">
-  <h3>{{$index+1}}. {{question.description}}</h3>
-</div>
+<h1 class="page-header">Quiz Page</h1>
+<section class="quiz-container">
+  <!-- loading gif -->
+  <!-- <div class="loading-div" ng-show="delay">
+    <img src="/images/double-ring-spinner.gif">
+  </div> -->
+
+  <div ng-repeat="question in questions">
+    <!-- question wrapper -->
+    <div class="question-wrap" ng-show="$index == currentQuestion">
+      <h3>{{$index+1}}. {{question.description}}</h3>
+
+      <form class="answers-form">
+        <label class="answer-label" ng-repeat="answer in question.answers">
+          <input type="checkbox" class="answer-checkbox" value="{{answer.description}}" ng-disabled="selected{{answer.question_id}}"
+            ng-click="select();setDelay()">{{answer.description}}
+        </label>
+      </form>
+    </div>
+    <!-- question wrapper -->
+  </div>
+
+</section>

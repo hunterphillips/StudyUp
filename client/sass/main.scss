@@ -2,13 +2,14 @@
   padding-top: 1em;
 }
 
-// ------ Registration / Login ------ //
-.auth-header {
+.page-header {
   text-align: center;
   font-weight: 700;
   font-size: 1.2em;
   margin-bottom: 1em;
 }
+
+// ------ Registration / Login ------ //
 .auth-form {
   width: 14em;
   margin: auto;
@@ -51,4 +52,40 @@
 }
 .role-select-wrap .radio {
   margin: 1em 1em 0em 0.1em;
+}
+
+// ------ Home Menu ------ //
+.home-view {
+  text-align: center;
+}
+
+// ------ Quiz view ------ //
+.quiz-container {
+  width: fit-content;
+  max-width: 85%;
+  margin: auto;
+}
+
+.answers-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+}
+
+.answer-label {
+  padding: 0.7em 0.5em;
+}
+
+.answer-checkbox {
+  margin-right: 1em;
+}
+// question animation
+.question-wrap.ng-hide {
+  opacity: 0;
+}
+.question-wrap.ng-hide-add {
+  transition: all linear 0.15s;
+}
+.question-wrap.ng-hide-remove {
+  transition: all linear 1.7s;
 }

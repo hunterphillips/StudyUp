@@ -1,28 +1,28 @@
 {
   "quizzes": [
     {
-      "title": "quiz_1",
+      "title": "Chapter 1",
       "course_id": 1
     },
     {
-      "title": "quiz_2",
+      "title": "Chapter 2",
       "course_id": 1
     },
     {
-      "title": "quiz_3",
+      "title": "Chapter 3",
       "course_id": 1
     },
     {
-      "title": "quiz_4",
+      "title": "Chapter 1",
       "course_id": 2
     },
     {
-      "title": "quiz_5",
+      "title": "Microbiology",
       "course_id": 2
     },
     {
-      "title": "quiz_6",
-      "course_id": 2
+      "title": "Endocrine System",
+      "course_id": 3
     }
   ]
 }

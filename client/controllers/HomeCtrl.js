@@ -1,21 +1,41 @@
 'use strict';
 angular
   .module('StudyU')
-  .controller('HomeCtrl', function(
-    $scope,
-    HomeFactory,
-    AuthFactory,
-    $location
-  ) {
-    $scope.user = AuthFactory.getCurrentUser();
+  .controller('HomeCtrl', function($scope, HomeFactory, $location) {
+    $scope.$on('handleBroadcast', function(event, currentUser) {
+      $scope.user = currentUser;
+    });
 
-    console.log('Home Scope', $scope);
-
-    HomeFactory.getUserCourses().then(userCourses => {
-      $scope.courses = userCourses.data;
+    $scope.$on('handleBroadcast', () => {
+      getCurrentSchedule();
     });
 
     $scope.goToClass = function() {
       $location.path(`/course/${this.course.id}`);
+    };
+
+    $scope.addCourse = function() {
+      console.log('\naddCourse called\n');
+      HomeFactory.addUserCourse({
+        user_id: $scope.user.id,
+        course_id: this.course.id
+      }).then(() => {
+        getCurrentSchedule();
+      });
+    };
+
+    const getCurrentSchedule = () => {
+      HomeFactory.getUserCourses($scope.user.id).then(catalog => {
+        $scope.courses = catalog.userCourses;
+        $scope.availableCourses = catalog.available;
+        // filter user courses out of Available list
+        $scope.availableCourses = $scope.availableCourses.filter(available => {
+          if ($scope.courses.find(course => course.id === available.id)) {
+            return false;
+          } else {
+            return true;
+          }
+        });
+      });
     };
   });

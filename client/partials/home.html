@@ -1,12 +1,17 @@
-<div>
-  <h2>Main Menu</h2>
-  <h3>Hello {{user.username}}</h3>
+<div class="home-view">
+  <h2 class="page-header">{{user.username}}</h2>
 
   <div class="course-containter">
     <h1>Your Courses</h1>
-
     <div class="course-card" ng-repeat="course in courses">
       <a ng-click="goToClass()">{{course.title}}</a>
+    </div>
+
+    <h1>Available Courses</h1>
+    <div class="course-card" ng-repeat="course in availableCourses">
+      <p>{{course.title}}
+        <a class="button is-primary is-outlined addCourse" ng-click="addCourse()">+</a>
+      </p>
     </div>
 
   </div>

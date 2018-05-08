@@ -1,6 +1,6 @@
 'use strict';
 // import 'bulma/css/bulma.css';
-angular.module('StudyU', ['ngRoute']).config($routeProvider => {
+angular.module('StudyU', ['ngRoute', 'ngAnimate']).config($routeProvider => {
   //
   $routeProvider
     .when('/', {
@@ -29,7 +29,7 @@ angular.module('StudyU', ['ngRoute']).config($routeProvider => {
 angular
   .module('StudyU')
   .run(($rootScope, $location, $route, $window, AuthFactory) => {
-    $rootScope.$on('$routeChangeStart', function() {
+    $rootScope.$on('$routeChangeSuccess', function() {
       AuthFactory.setUserStatus().then(() => {
         console.log('user', AuthFactory.getCurrentUser());
         // console.log('next', next);

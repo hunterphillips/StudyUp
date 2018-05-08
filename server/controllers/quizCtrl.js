@@ -32,3 +32,18 @@ const getAnswers = (model, question) => {
       });
   });
 };
+
+module.exports.updateUserScore = (
+  { app, body: { user_id, result } },
+  res,
+  next
+) => {
+  let User = app.get('models').User;
+  User.update({ score: result }, { where: { id: user_id } })
+    .then(() => {
+      res.status(201).end();
+    })
+    .catch(err => {
+      next(err);
+    });
+};

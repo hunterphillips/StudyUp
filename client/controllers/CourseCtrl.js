@@ -4,20 +4,22 @@ angular
   .controller('CourseCtrl', function(
     $scope,
     CourseFactory,
-    AuthFactory,
     $routeParams,
     $location
   ) {
-    $scope.user = AuthFactory.getCurrentUser();
+    $scope.$on('handleBroadcast', function(event, currentUser) {
+      $scope.user = currentUser;
+    });
 
     console.log('Course Scope', $scope);
 
     // $scope.$on('$routeChangeSuccess': every time parameters in url changed
     //  emits every time the ngView content is reloaded
     $scope.$on('$viewContentLoaded', function() {
-      CourseFactory.getCourseQuizzes(+$routeParams.id).then(quizList => {
+      CourseFactory.getCourseInfo(+$routeParams.id).then(course => {
         // console.log('CourseCtrl\n', quizList);
-        $scope.quizzes = quizList;
+        $scope.quizzes = course.quizzes;
+        $scope.courseTitle = course.title;
       });
     });
 

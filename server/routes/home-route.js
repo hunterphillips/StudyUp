@@ -2,8 +2,9 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getCourseList } = require('../controllers/homeCtrl.js');
+const { getCourseList, addCourse } = require('../controllers/homeCtrl.js');
 
 router.get('/home', getCourseList);
+router.post('/home', addCourse);
 
 module.exports = router;

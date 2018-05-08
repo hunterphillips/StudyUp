@@ -130,7 +130,7 @@
     },
     {
       "question_id": 9,
-      "description": "the size of the plasma membrane"
+      "description": "size of the plasma membrane"
     },
     {
       "question_id": 9,
@@ -143,7 +143,7 @@
     },
     {
       "question_id": 9,
-      "description": "the size of the nucleus"
+      "description": "size of the nucleus"
     },
     {
       "question_id": 10,
@@ -192,6 +192,102 @@
     {
       "question_id": 12,
       "description": "insulator"
+    },
+    {
+      "question_id": 13,
+      "description": "Specific Receptors"
+    },
+    {
+      "question_id": 13,
+      "description": "Calcium"
+    },
+    {
+      "question_id": 13,
+      "description": "cAMP"
+    },
+    {
+      "question_id": 13,
+      "description": "ATP"
+    },
+    {
+      "question_id": 14,
+      "description": "Aldosterone"
+    },
+    {
+      "question_id": 14,
+      "description": "ADH"
+    },
+    {
+      "question_id": 14,
+      "description": "Cortisone"
+    },
+    {
+      "question_id": 14,
+      "description": "Glucagon"
+    },
+    {
+      "question_id": 15,
+      "description": "Growth hormone"
+    },
+    {
+      "question_id": 15,
+      "description": "Cortisone"
+    },
+    {
+      "question_id": 15,
+      "description": "Thyroxine"
+    },
+    {
+      "question_id": 15,
+      "description": "parathormone"
+    },
+    {
+      "question_id": 16,
+      "description": "Thyroxine"
+    },
+    {
+      "question_id": 16,
+      "description": "Calcitonin"
+    },
+    {
+      "question_id": 16,
+      "description": "GH"
+    },
+    {
+      "question_id": 16,
+      "description": "Parathromone"
+    },
+    {
+      "question_id": 17,
+      "description": "Mesophiles"
+    },
+    {
+      "question_id": 17,
+      "description": "Cryophiles"
+    },
+    {
+      "question_id": 17,
+      "description": "Thermophiles"
+    },
+    {
+      "question_id": 17,
+      "description": "Gram positive bacteria"
+    },
+    {
+      "question_id": 18,
+      "description": "Obligate anaerobes"
+    },
+    {
+      "question_id": 18,
+      "description": "Obligate aerobes"
+    },
+    {
+      "question_id": 18,
+      "description": "Facultative anaerobes"
+    },
+    {
+      "question_id": 18,
+      "description": "Thermophiles"
     }
   ]
 }
