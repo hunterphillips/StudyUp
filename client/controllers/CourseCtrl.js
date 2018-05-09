@@ -14,8 +14,7 @@ angular
 
     console.log('Course Scope', $scope);
 
-    // $scope.$on('$routeChangeSuccess': every time parameters in url changed
-    //  emits every time the ngView content is reloaded
+    // emits once the ngView content is loaded
     $scope.$on('$viewContentLoaded', function() {
       CourseFactory.getCourseInfo(+$routeParams.id).then(course => {
         // console.log('CourseCtrl\n', quizList);

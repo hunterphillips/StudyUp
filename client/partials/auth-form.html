@@ -1,64 +1,76 @@
-<section class="auth-form">
-  <!-- Login Form -->
-  <form name="loginForm">
-    <h2 class="auth-section-header sub-header">Login</h2>
-    <h3 class="formError">{{errorMsg}}</h3>
+<div class="auth-container">
 
-    <div>
-      <!-- Email: -->
-      <input placeholder="Email" class="form-input" type="text" autofocus="true" ng-model="account.email" required>
-    </div>
-    <div>
-      <!-- Password: -->
-      <input placeholder="Password" class="form-input" type="password" ng-model="account.password" required>
-    </div>
+  <h1 class="logo">StudyUp</h1>
+  <!-- login container -->
+  <section class="auth-form loginSection">
+    <!-- Login Form -->
+    <form name="loginForm">
+      <h2 class="auth-section-header sub-header">Login</h2>
+      <h3 class="formError">{{errorMsg}}</h3>
 
-    <div class="submit-div">
-      <button class="button loginBtn" ng-click="login()" ng-disabled="!loginForm.$valid">Login</button>
-      <span ng-show="!loginForm.$valid">*Please fill in all required fields</span>
-    </div>
-  </form>
-  <!-- Login Form -->
-</section>
+      <div>
+        <!-- Email: -->
+        <input placeholder="Email" class="form-input" type="text" autofocus="true" ng-model="account.email" required>
+      </div>
+      <div>
+        <!-- Password: -->
+        <input placeholder="Password" class="form-input" type="password" ng-model="account.password" required>
+      </div>
 
-<h2 class="or-header">
-  <span>OR</span>
-</h2>
+      <div class="submit-div">
+        <button class="button loginBtn" ng-click="login()" ng-disabled="!loginForm.$valid">Login</button>
 
-<section class="auth-form registerSection">
-  <!-- Register Form -->
-  <form name="registerForm">
-    <h2 class="auth-section-header sub-header">Register a new account</h2>
-    <h3 class="formError">{{errorMsg}}</h3>
+        <div class="valid-msg">
+          <span ng-show="!loginForm.$valid">*Please fill in all required fields</span>
+        </div>
 
-    <div class="role-select-wrap">
-      <!-- Role -->
-      <label for "student" class="role-label">Student</label>
-      <input class="radio" type="radio" name="student" value=2 ng-model="newAccount.role" required>
-      <label for "administrator" class="role-label">Admin</label>
-      <input class="radio" type="radio" name="administrator" value=1 ng-model="newAccount.role" required>
-    </div>
-    <div>
-      <!-- Username: -->
-      <input placeholder="Username" class="form-input" type="text" autofocus="true" ng-model="newAccount.username" required>
-    </div>
-    <div>
-      <!-- Email: -->
-      <input placeholder="Email" class="form-input" type="text" autofocus="true" ng-model="newAccount.email" required>
-    </div>
-    <div>
-      <!-- Password: -->
-      <input placeholder="Password" class="form-input" type="password" ng-model="newAccount.password" required>
-    </div>
-    <div>
-      <!-- Password Confirmation: -->
-      <input placeholder="Confirm password" class="form-input" type="password" ng-model="newAccount.passwordConf" required>
-    </div>
+      </div>
+    </form>
+    <!-- Login Form -->
+  </section>
+  <!-- login container -->
+  <h2 class="or-header">
+    <span>OR</span>
+  </h2>
+  <!-- Registration container -->
+  <section class="auth-form registerSection">
+    <!-- Register Form -->
+    <form name="registerForm">
+      <h2 class="auth-section-header sub-header">Register a new account</h2>
+      <h3 class="formError">{{errorMsg}}</h3>
 
-    <div class="submit-div">
-      <button class="button registerBtn" ng-click="register()" ng-disabled="!registerForm.$valid">Register</button>
-      <span ng-show="!registerForm.$valid">*Please fill in all required fields</span>
-    </div>
-  </form>
-  <!-- Register Form -->
-</section>
+      <div class="role-select-wrap">
+        <!-- Role -->
+        <label for "student" class="role-label">Student</label>
+        <input class="radio" type="radio" name="student" value=2 ng-model="newAccount.role" required>
+        <label for "administrator" class="role-label">Admin</label>
+        <input class="radio" type="radio" name="administrator" value=1 ng-model="newAccount.role" required>
+      </div>
+      <div>
+        <!-- Username: -->
+        <input placeholder="Username" class="form-input" type="text" autofocus="true" ng-model="newAccount.username" required>
+      </div>
+      <div>
+        <!-- Email: -->
+        <input placeholder="Email" class="form-input" type="text" autofocus="true" ng-model="newAccount.email" required>
+      </div>
+      <div>
+        <!-- Password: -->
+        <input placeholder="Password" class="form-input" type="password" ng-model="newAccount.password" required>
+      </div>
+      <div>
+        <!-- Password Confirmation: -->
+        <input placeholder="Confirm password" class="form-input" type="password" ng-model="newAccount.passwordConf" required>
+      </div>
+
+      <div class="submit-div">
+        <button class="button registerBtn" ng-click="register()" ng-disabled="!registerForm.$valid">Register</button>
+        <div class="valid-msg">
+          <span ng-show="!registerForm.$valid">*Please fill in all required fields</span>
+        </div>
+      </div>
+    </form>
+    <!-- Register Form -->
+  </section>
+  <!-- Registration container -->
+</div>

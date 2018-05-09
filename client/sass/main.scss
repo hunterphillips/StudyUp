@@ -25,6 +25,7 @@
   font-size: 1.4em;
   font-weight: 600;
   color: #252121;
+  text-align: center;
 }
 
 @font-face {
@@ -39,6 +40,14 @@
 }
 
 // ------ Registration / Login ------ //
+.auth-container {
+  padding-top: 2em;
+}
+
+.loginSection {
+  margin-top: 1em !important;
+}
+
 .auth-form {
   width: 14em;
   margin: auto;
@@ -67,7 +76,7 @@
   text-align: center;
   border-bottom: 1px solid #d4d3d3;
   line-height: 0.1em;
-  margin: 1em auto 1em;
+  margin: 1em auto 2em;
   color: #a0a0a0;
 }
 
@@ -94,6 +103,9 @@
   opacity: 0;
   transition: opacity 0.2s;
 }
+.valid-msg {
+  height: 1.5em;
+}
 
 // ------ Home Menu ------ //
 .home-view {
@@ -101,13 +113,15 @@
 }
 
 .course-listing {
-  margin: 0.3em;
+  margin: 0.6em 0em;
 }
 
 .addCourse {
-  width: 1.9em;
-  height: 1.5em;
-  font-size: 17px;
+  width: 2.3em;
+  height: 1.1em;
+  font-size: 18px;
+  position: absolute;
+  margin-left: 1em;
 }
 
 // ------ Course view ------ //

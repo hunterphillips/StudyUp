@@ -33,7 +33,6 @@ angular
       // controller: 'NavbarCtrl'
     };
   })
-
   // Back Button Directive
   .directive('back', [
     '$window',
@@ -49,9 +48,8 @@ angular
     }
   ]);
 
-// TODO:   **** controller
-// On page refresh, the currentUser set in the auth factory is lost, bc its a variable. We need to ask the backend for the user it has stored in session so we can reestablish current user. Below, we listen for a route change and call a method that will ping the backend for the logged-in user, then broadcast that information via a custom event to the listening controllers
-// ( see the ****** controller)
+// On page refresh, the currentUser set in the auth factory is lost. We ask the backend for the user stored in session -> listen for a route change and call a method that pings the backend for the logged-in user, then broadcast that information via a custom event to the listening controllers
+//
 
 angular
   .module('StudyUp')
@@ -59,7 +57,6 @@ angular
     $rootScope.$on('$routeChangeSuccess', function() {
       AuthFactory.setUserStatus().then(() => {
         console.log('user', AuthFactory.getCurrentUser());
-        // console.log('next', next);
         AuthFactory.broadcastUserLogin(AuthFactory.getCurrentUser());
       });
     });

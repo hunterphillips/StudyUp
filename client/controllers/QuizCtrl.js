@@ -4,9 +4,8 @@ angular
   .controller('QuizCtrl', function(
     $scope,
     QuizFactory,
-    AuthFactory,
     $routeParams,
-    $rootScope,
+    $location,
     $timeout
   ) {
     //initialize

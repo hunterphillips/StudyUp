@@ -2,13 +2,11 @@
 angular
   .module('StudyUp')
   .controller('HomeCtrl', function($scope, HomeFactory, $location) {
+    // get current user, set associated $scope values
     $scope.$on('handleBroadcast', function(event, currentUser) {
       $scope.user = currentUser;
       $scope.showNav = true;
       $scope.title = currentUser.username;
-    });
-
-    $scope.$on('handleBroadcast', () => {
       getCurrentSchedule();
     });
 
@@ -17,11 +15,11 @@ angular
     };
 
     $scope.addCourse = function() {
-      console.log('\naddCourse called\n');
       HomeFactory.addUserCourse({
         user_id: $scope.user.id,
         course_id: this.course.id
       }).then(() => {
+        console.log('Course added');
         getCurrentSchedule();
       });
     };
