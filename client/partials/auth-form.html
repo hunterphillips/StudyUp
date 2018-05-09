@@ -1,18 +1,24 @@
 <section class="auth-form">
-  <h2 class="auth-section-header sub-header">Login</h2>
-  <h3 class="formError">{{errorMsg}}</h3>
+  <!-- Login Form -->
+  <form name="loginForm">
+    <h2 class="auth-section-header sub-header">Login</h2>
+    <h3 class="formError">{{errorMsg}}</h3>
 
-  <div>
-    <!-- Email: -->
-    <input placeholder="Email" class="form-input" type="text" autofocus="true" ng-model="account.email">
-  </div>
-  <div>
-    <!-- Password: -->
-    <input placeholder="Password" class="form-input" type="password" ng-model="account.password">
-  </div>
-  <div>
-    <button class="button loginBtn" ng-click="login()">Login</button>
-  </div>
+    <div>
+      <!-- Email: -->
+      <input placeholder="Email" class="form-input" type="text" autofocus="true" ng-model="account.email" required>
+    </div>
+    <div>
+      <!-- Password: -->
+      <input placeholder="Password" class="form-input" type="password" ng-model="account.password" required>
+    </div>
+
+    <div class="submit-div">
+      <button class="button loginBtn" ng-click="login()" ng-disabled="!loginForm.$valid">Login</button>
+      <span ng-show="!loginForm.$valid">*Please fill in all required fields</span>
+    </div>
+  </form>
+  <!-- Login Form -->
 </section>
 
 <h2 class="or-header">
@@ -20,34 +26,39 @@
 </h2>
 
 <section class="auth-form registerSection">
-  <h2 class="auth-section-header sub-header">Register a new account</h2>
-  <h3 class="formError">{{errorMsg}}</h3>
+  <!-- Register Form -->
+  <form name="registerForm">
+    <h2 class="auth-section-header sub-header">Register a new account</h2>
+    <h3 class="formError">{{errorMsg}}</h3>
 
-  <div class="role-select-wrap">
-    <!-- Role -->
-    <label for "student" class="role-label">Student</label>
-    <input class="radio" type="radio" name="student" value=2 ng-model="newAccount.role">
-    <label for "administrator" class="role-label">Admin</label>
-    <input class="radio" type="radio" name="administrator" value=1 ng-model="newAccount.role">
-  </div>
-  <div>
-    <!-- Username: -->
-    <input placeholder="Username" class="form-input" type="text" autofocus="true" ng-model="newAccount.username">
-  </div>
-  <div>
-    <!-- Email: -->
-    <input placeholder="Email" class="form-input" type="text" autofocus="true" ng-model="newAccount.email">
-  </div>
-  <div>
-    <!-- Password: -->
-    <input placeholder="Password" class="form-input" type="password" ng-model="newAccount.password">
-  </div>
-  <div>
-    <!-- Password Confirmation: -->
-    <input placeholder="Confirm password" class="form-input" type="password" ng-model="newAccount.passwordConf">
-  </div>
+    <div class="role-select-wrap">
+      <!-- Role -->
+      <label for "student" class="role-label">Student</label>
+      <input class="radio" type="radio" name="student" value=2 ng-model="newAccount.role" required>
+      <label for "administrator" class="role-label">Admin</label>
+      <input class="radio" type="radio" name="administrator" value=1 ng-model="newAccount.role" required>
+    </div>
+    <div>
+      <!-- Username: -->
+      <input placeholder="Username" class="form-input" type="text" autofocus="true" ng-model="newAccount.username" required>
+    </div>
+    <div>
+      <!-- Email: -->
+      <input placeholder="Email" class="form-input" type="text" autofocus="true" ng-model="newAccount.email" required>
+    </div>
+    <div>
+      <!-- Password: -->
+      <input placeholder="Password" class="form-input" type="password" ng-model="newAccount.password" required>
+    </div>
+    <div>
+      <!-- Password Confirmation: -->
+      <input placeholder="Confirm password" class="form-input" type="password" ng-model="newAccount.passwordConf" required>
+    </div>
 
-  <div>
-    <button class="button registerBtn" ng-click="register()">Register</button>
-  </div>
+    <div class="submit-div">
+      <button class="button registerBtn" ng-click="register()" ng-disabled="!registerForm.$valid">Register</button>
+      <span ng-show="!registerForm.$valid">*Please fill in all required fields</span>
+    </div>
+  </form>
+  <!-- Register Form -->
 </section>

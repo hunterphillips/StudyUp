@@ -20,6 +20,18 @@
   line-height: 3.25rem;
 }
 
+.logo {
+  font-family: magetta;
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #252121;
+}
+
+@font-face {
+  font-family: magetta;
+  src: url('../styles/fonts/Magettas.otf');
+}
+
 @media (min-width: 768px) {
   .navbar-burger {
     display: none;
@@ -69,6 +81,18 @@
 }
 .role-select-wrap .radio {
   margin: 1em 1em 0em 0.1em;
+}
+
+.submit-div:hover span {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+.submit-div span {
+  font-size: 0.8em;
+  color: #f57e7e;
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.2s;
 }
 
 // ------ Home Menu ------ //
