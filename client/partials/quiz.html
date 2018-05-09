@@ -11,7 +11,7 @@
       <h3>{{question.description}}</h3>
 
       <form class="answers-form">
-        <label class="answer-label" ng-repeat="answer in question.answers">
+        <label class="answer-label" ng-repeat="answer in question.answers | orderBy:randomSort">
           <input type="checkbox" class="answer-checkbox" ng-disabled="selected{{answer.question_id}}" ng-click="select()">
           <span ng-model="entity.isChecked" ng-class="{ 'submitted': selected{{answer.question_id}}, 'correct': selected{{answer.question_id}}&&{{answer.id == question.answer_id}}, 'wrong': selected&&{{answer.id != question.answer_id}} }">
             {{answer.description}}</span>

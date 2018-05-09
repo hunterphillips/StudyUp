@@ -1,18 +1,29 @@
 // ----- App ----- //
 .app-container {
-  padding-top: 1em;
   letter-spacing: 0.75px;
-}
-
-.page-header {
-  text-align: center;
-  font-weight: 700;
-  font-size: 1.5em;
-  margin-bottom: 1em;
 }
 
 .sub-header {
   font-size: 1.1em;
+}
+
+// ----- Nav ----- //
+.navbar {
+  margin-bottom: 1em;
+}
+.nav-header {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.5em;
+  line-height: 3.25rem;
+}
+
+@media (min-width: 768px) {
+  .navbar-burger {
+    display: none;
+  }
 }
 
 // ------ Registration / Login ------ //

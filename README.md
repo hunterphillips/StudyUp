@@ -1,1 +1,1 @@
-# studyU
+# StudyUp

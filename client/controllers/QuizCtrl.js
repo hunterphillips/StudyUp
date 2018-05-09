@@ -1,14 +1,13 @@
 'use strict';
 angular
-  .module('StudyU')
+  .module('StudyUp')
   .controller('QuizCtrl', function(
     $scope,
     QuizFactory,
     AuthFactory,
     $routeParams,
     $rootScope,
-    $timeout,
-    $location
+    $timeout
   ) {
     //initialize
     $scope.questions = [];
@@ -23,12 +22,23 @@ angular
     $scope.$on('$viewContentLoaded', function() {
       QuizFactory.getQuizQuestions(+$routeParams.id).then(data => {
         $scope.questions = data;
+        shuffleArray($scope.questions);
         // apply default 'selected' value to each group of question answers
         $scope.questions.forEach(question => {
           $scope[`selected${question.id}`] = false; // ng-disabled in template
+          // randomize answer order
+          shuffleArray(question.answers);
         });
       });
     });
+
+    // function to randomize order of an array (for quiz questions/answers)
+    const shuffleArray = array => {
+      for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    };
 
     // update 'selected' value for this question's answers
     $scope.select = function() {

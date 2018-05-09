@@ -1,9 +1,11 @@
 'use strict';
 angular
-  .module('StudyU')
+  .module('StudyUp')
   .controller('HomeCtrl', function($scope, HomeFactory, $location) {
     $scope.$on('handleBroadcast', function(event, currentUser) {
       $scope.user = currentUser;
+      $scope.showNav = true;
+      $scope.title = currentUser.username;
     });
 
     $scope.$on('handleBroadcast', () => {

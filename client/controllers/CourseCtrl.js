@@ -1,6 +1,6 @@
 'use strict';
 angular
-  .module('StudyU')
+  .module('StudyUp')
   .controller('CourseCtrl', function(
     $scope,
     CourseFactory,
@@ -9,6 +9,7 @@ angular
   ) {
     $scope.$on('handleBroadcast', function(event, currentUser) {
       $scope.user = currentUser;
+      $scope.showNav = true;
     });
 
     console.log('Course Scope', $scope);
@@ -19,7 +20,7 @@ angular
       CourseFactory.getCourseInfo(+$routeParams.id).then(course => {
         // console.log('CourseCtrl\n', quizList);
         $scope.quizzes = course.quizzes;
-        $scope.courseTitle = course.title;
+        $scope.title = course.title;
       });
     });
 

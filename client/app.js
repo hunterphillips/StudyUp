@@ -1,7 +1,7 @@
 'use strict';
 // import 'bulma/css/bulma.css';
 angular
-  .module('StudyU', ['ngRoute', 'ngAnimate'])
+  .module('StudyUp', ['ngRoute', 'ngAnimate'])
   .config($routeProvider => {
     //
     $routeProvider
@@ -24,6 +24,16 @@ angular
       .otherwise('/');
   })
 
+  // Nav Directive
+  .directive('navbar', function() {
+    return {
+      scope: true,
+      restrict: 'EA',
+      templateUrl: 'partials/nav-bar.html'
+      // controller: 'NavbarCtrl'
+    };
+  })
+
   // Back Button Directive
   .directive('back', [
     '$window',
@@ -44,7 +54,7 @@ angular
 // ( see the ****** controller)
 
 angular
-  .module('StudyU')
+  .module('StudyUp')
   .run(($rootScope, $location, $route, $window, AuthFactory) => {
     $rootScope.$on('$routeChangeSuccess', function() {
       AuthFactory.setUserStatus().then(() => {

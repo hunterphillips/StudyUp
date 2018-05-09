@@ -1,5 +1,5 @@
 'use strict';
-angular.module('StudyU').factory('HomeFactory', ($http, $location) => {
+angular.module('StudyUp').factory('HomeFactory', ($http, $location) => {
   return {
     getUserCourses(id) {
       if (id) {

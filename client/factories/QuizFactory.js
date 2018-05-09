@@ -1,5 +1,5 @@
 'use strict';
-angular.module('StudyU').factory('QuizFactory', $http => {
+angular.module('StudyUp').factory('QuizFactory', $http => {
   return {
     getQuizQuestions(id) {
       return $http.get(`/quiz/${id}`).then(questions => {

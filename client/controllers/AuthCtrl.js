@@ -1,6 +1,6 @@
 'use strict';
 angular
-  .module('StudyU')
+  .module('StudyUp')
   .controller('AuthCtrl', function($scope, AuthFactory, $location, $http) {
     $scope.account = {};
 

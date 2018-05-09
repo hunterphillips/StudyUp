@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('StudyU').factory('AuthFactory', ($q, $http, $rootScope) => {
+angular.module('StudyUp').factory('AuthFactory', ($q, $http, $rootScope) => {
   let currentUser = null;
 
   return {

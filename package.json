@@ -1,5 +1,5 @@
 {
-  "name": "studyU",
+  "name": "StudyUp",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -11,22 +11,20 @@
     "dev": "concurrently \"nodemon main.js\" \"rerun-script\""
   },
   "watches": {
-    "sass": [
-      "client/sass/*.scss"
-    ],
+    "sass": ["client/sass/*.scss"],
     "lint": "**/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hunterphillips/studyU.git"
+    "url": "git+https://github.com/hunterphillips/StudyUp.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hunterphillips/studyU/issues"
+    "url": "https://github.com/hunterphillips/StudyUp/issues"
   },
-  "homepage": "https://github.com/hunterphillips/studyU#readme",
+  "homepage": "https://github.com/hunterphillips/StudyUp#readme",
   "dependencies": {
     "angular": "^1.6.10",
     "angular-animate": "^1.6.10",
