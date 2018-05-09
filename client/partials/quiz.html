@@ -8,16 +8,24 @@
   <div ng-repeat="question in questions">
     <!-- question wrapper -->
     <div class="question-wrap" ng-show="$index == currentQuestion">
-      <h3>{{$index+1}}. {{question.description}}</h3>
+      <h3>{{question.description}}</h3>
 
       <form class="answers-form">
         <label class="answer-label" ng-repeat="answer in question.answers">
-          <input type="checkbox" class="answer-checkbox" value="{{answer.description}}" ng-disabled="selected{{answer.question_id}}"
-            ng-click="select();setDelay()">{{answer.description}}
+          <input type="checkbox" class="answer-checkbox" ng-disabled="selected{{answer.question_id}}" ng-click="select()">
+          <span ng-model="entity.isChecked" ng-class="{ 'submitted': selected{{answer.question_id}}, 'correct': selected{{answer.question_id}}&&{{answer.id == question.answer_id}}, 'wrong': selected&&{{answer.id != question.answer_id}} }">
+            {{answer.description}}</span>
         </label>
       </form>
     </div>
     <!-- question wrapper -->
+  </div>
+  <!-- Finished Quiz -->
+  <div class="finished-container question-wrap" ng-show="completed">
+    <h1>Results</h1>
+    <p>{{score}} %</p>
+    <button back>Back</button>
+    <!-- <a href backButton>Back to Course menu</a> -->
   </div>
 
 </section>

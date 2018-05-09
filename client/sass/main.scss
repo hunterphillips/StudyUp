@@ -1,12 +1,18 @@
+// ----- App ----- //
 .app-container {
   padding-top: 1em;
+  letter-spacing: 0.75px;
 }
 
 .page-header {
   text-align: center;
   font-weight: 700;
-  font-size: 1.2em;
+  font-size: 1.5em;
   margin-bottom: 1em;
+}
+
+.sub-header {
+  font-size: 1.1em;
 }
 
 // ------ Registration / Login ------ //
@@ -59,11 +65,30 @@
   text-align: center;
 }
 
+.course-listing {
+  margin: 0.3em;
+}
+
+.addCourse {
+  width: 1.9em;
+  height: 1.5em;
+  font-size: 17px;
+}
+
+// ------ Course view ------ //
+.course-container {
+  text-align: center;
+}
+
 // ------ Quiz view ------ //
-.quiz-container {
-  width: fit-content;
-  max-width: 85%;
+.question-wrap {
+  position: absolute;
+  width: 89%;
+  max-width: 35em;
+  text-align: center;
   margin: auto;
+  right: 0;
+  left: 0;
 }
 
 .answers-form {
@@ -73,19 +98,39 @@
 }
 
 .answer-label {
-  padding: 0.7em 0.5em;
+  line-height: 3em;
+  border: 1px solid;
+  margin-bottom: 1em;
+  border-radius: 3px;
 }
 
 .answer-checkbox {
   margin-right: 1em;
+  display: none;
 }
 // question animation
 .question-wrap.ng-hide {
+  z-index: 0;
   opacity: 0;
 }
 .question-wrap.ng-hide-add {
   transition: all linear 0.15s;
 }
 .question-wrap.ng-hide-remove {
-  transition: all linear 1.7s;
+  z-index: 2;
+  transition: all linear 1.45s;
+}
+
+.submitted {
+  opacity: 0.65;
+  transition: all linear 0.19s;
+}
+.correct {
+  color: #04b904;
+  border-color: #04b904;
+  transition: all linear 0.2s;
+}
+.wrong {
+  color: red !important;
+  transition: all linear 0.2s;
 }
