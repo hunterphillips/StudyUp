@@ -1,7 +1,12 @@
 'use strict';
 angular
   .module('StudyUp')
-  .controller('HomeCtrl', function($scope, HomeFactory, $location) {
+  .controller('HomeCtrl', function(
+    $scope,
+    HomeFactory,
+    $location,
+    AuthFactory
+  ) {
     // get current user, set associated $scope values
     $scope.$on('handleBroadcast', function(event, currentUser) {
       $scope.user = currentUser;
@@ -36,6 +41,13 @@ angular
             return true;
           }
         });
+      });
+    };
+
+    $scope.logout = () => {
+      AuthFactory.logoutUser().then(() => {
+        console.log('User logged out');
+        $location.path(`/`);
       });
     };
   });

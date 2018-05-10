@@ -1,18 +1,28 @@
 <navbar></navbar>
 <div class="home-view">
-
+  <!-- container -->
   <div class="course-containter">
-    <h1 class="sub-header">Your Courses</h1>
-    <div class="course-listing" ng-repeat="course in courses">
-      <a ng-click="goToClass()">{{course.title}}</a>
+    <!-- enrolled section -->
+    <div class="enrolled-section">
+      <h1 class="sub-header">Your Courses</h1>
+      <div class="course-listing" ng-repeat="course in courses">
+        <a ng-click="goToClass()">{{course.title}}</a>
+      </div>
+    </div>
+    <!-- available section -->
+    <div class="available-section" ng-hide="!availableCourses.length">
+      <h1 class="sub-header">Available Courses</h1>
+
+      <div class="course-listing" ng-repeat="course in availableCourses">
+        <p>{{course.title}}
+          <a class="button is-primary is-outlined addCourse" ng-click="addCourse()">+</a>
+        </p>
+      </div>
     </div>
 
-    <h1>Available Courses</h1>
-    <div class="course-listing" ng-repeat="course in availableCourses">
-      <p>{{course.title}}
-        <a class="button is-primary is-outlined addCourse" ng-click="addCourse()">+</a>
-      </p>
-    </div>
+  </div>
 
+  <div class="logout-div">
+    <a class="logout-btn" ng-click="logout()">Logout</a>
   </div>
 </div>

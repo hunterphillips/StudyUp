@@ -5,11 +5,12 @@
 
 .sub-header {
   font-size: 1.1em;
+  background-color: #e8e8e8;
 }
 
 // ----- Nav ----- //
 .navbar {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 .nav-header {
   position: absolute;
@@ -26,6 +27,7 @@
   font-weight: 600;
   color: #252121;
   text-align: center;
+  z-index: 2;
 }
 
 @font-face {
@@ -53,12 +55,23 @@
   margin: auto;
   direction: inherit;
 }
-.auth-form .button {
-  width: 100%;
-}
 
 .auth-section-header {
   text-align: center;
+  font-size: 1.1em;
+}
+
+.auth-form .button {
+  width: 100%;
+  background-color: #03af99f0;
+  color: whitesmoke;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  transition: 0.2s;
+}
+.auth-form .button:hover {
+  opacity: 0.85;
+  transition: 0.2s;
 }
 
 .form-input {
@@ -112,16 +125,37 @@
   text-align: center;
 }
 
+.enrolled-section {
+  padding-bottom: 1em;
+}
+
 .course-listing {
   margin: 0.6em 0em;
 }
 
 .addCourse {
-  width: 2.3em;
+  width: 2.1em;
   height: 1.1em;
   font-size: 18px;
   position: absolute;
   margin-left: 1em;
+  opacity: 0.55;
+  backface-visibility: hidden;
+  transition: opacity 0.4s;
+}
+.addCourse:hover {
+  opacity: 0.9;
+}
+
+.logout-div {
+  margin-top: 2em;
+}
+
+.logout-btn {
+  color: #de6262;
+}
+.logout-btn:hover {
+  color: #e67e7e;
 }
 
 // ------ Course view ------ //

@@ -23,6 +23,12 @@ angular
         });
       },
 
+      logoutUser() {
+        return $http.post('/logout').then(data => {
+          return data;
+        });
+      },
+
       getCurrentUser() {
         return currentUser;
       },
