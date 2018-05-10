@@ -24,7 +24,6 @@ angular
       AuthFactory.loginUser($scope.account).then(user => {
         AuthFactory.broadcastUserLogin(user);
         $location.path('/home');
-        // $http.get('/home');
       });
     };
   });

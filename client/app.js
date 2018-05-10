@@ -30,9 +30,9 @@ angular
       scope: true,
       restrict: 'EA',
       templateUrl: 'partials/nav-bar.html'
-      // controller: 'NavbarCtrl'
     };
   })
+
   // Back Button Directive
   .directive('back', [
     '$window',
