@@ -50,5 +50,8 @@ models.sequelize
     process.exit();
   });
 
+// QUIZ DATA
+// https://b.socrative.com/teacher/
+
 // model example
 //  sequelize model:create --name Answer --attributes description:string,email:string,password:string,score:integer

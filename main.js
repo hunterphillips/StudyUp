@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const bodyParser = require('body-parser');
+const socket = require('socket.io');
 // auth
 const session = require('express-session');
 const passport = require('passport');
@@ -41,15 +42,26 @@ app.use(bodyParser.json());
 // Modularized Routing
 app.use(routes);
 
-app.listen(3000, () => {
+// save server in variable to pass to socket.io
+const server = app.listen(3000, () => {
   console.log(`server listening on port ${port}`);
 });
 
-// QUIZ DATA OPTIONS
+// Socket setup
+const io = socket(server);
 
-// Your Quizlet Client ID jP7k2hxe2Y
-// Your Secret Key (for user auth only):kC8TtMyu4XTFsKmnB5yAaG (reset)
+// event handling
+io.on('connection', socket => {
+  // emits id specific to each new connection
+  console.log('Socket connection made, socket.id:', socket.id);
+  // listen for 'answer' event (defined on front end)
+  socket.on('answer', function(data) {
+    io.sockets.emit('answer', data); // emit data to all connected sockets
+  });
+});
 
-// https://opentdb.com/api_config.php
-
-// https://b.socrative.com/teacher/   ***** Current Choice ****
+//
+app.post('/matches', (req, res) => {
+  io.emit('answer', req.body);
+  return res.status(200);
+});
