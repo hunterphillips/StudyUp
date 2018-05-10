@@ -32,16 +32,43 @@ angular
       templateUrl: 'partials/nav-bar.html'
     };
   })
-
   // Back Button Directive
   .directive('back', [
     '$window',
     function($window) {
       return {
         restrict: 'A',
-        link: function(scope, elem, attrs) {
+        link: function(scope, elem) {
           elem.bind('click', function() {
             $window.history.back();
+          });
+        }
+      };
+    }
+  ])
+
+  // service to wrap the socket object returned by Socket.IO
+  .factory('socketio', [
+    '$rootScope',
+    function($rootScope) {
+      const socket = io.connect();
+      return {
+        on: function(eventName, callback) {
+          socket.on(eventName, function() {
+            var args = arguments;
+            $rootScope.$apply(function() {
+              callback.apply(socket, args);
+            });
+          });
+        },
+        emit: function(eventName, data, callback) {
+          socket.emit(eventName, data, function() {
+            var args = arguments;
+            $rootScope.$apply(function() {
+              if (callback) {
+                callback.apply(socket, args);
+              }
+            });
           });
         }
       };
@@ -50,7 +77,6 @@ angular
 
 // On page refresh, the currentUser set in the auth factory is lost. We ask the backend for the user stored in session -> listen for a route change and call a method that pings the backend for the logged-in user, then broadcast that information via a custom event to the listening controllers
 //
-
 angular
   .module('StudyUp')
   .run(($rootScope, $location, $route, $window, AuthFactory) => {
@@ -61,3 +87,13 @@ angular
       });
     });
   });
+
+//
+//
+// TODO: loading gif
+// $scope.setDelay = function() {
+//   $scope.delay = true;
+//   $timeout(function() {
+//     $scope.delay = false;
+//   }, 1000);
+// };

@@ -6,7 +6,8 @@ angular
     QuizFactory,
     $routeParams,
     $location,
-    $timeout
+    $timeout,
+    socketio
   ) {
     //initialize
     $scope.questions = [];
@@ -52,6 +53,7 @@ angular
       result = result === true ? 1 : 0;
       $scope.score += result;
       QuizFactory.submitAnswer({ user_id: $scope.user.id, result: result });
+      QuizFactory.emitAnswer({ user_id: $scope.user.id, result: result });
     };
 
     const nextQuestion = () => {
@@ -65,11 +67,7 @@ angular
       }, 1800);
     };
 
-    // TODO: loading gif
-    // $scope.setDelay = function() {
-    //   $scope.delay = true;
-    //   $timeout(function() {
-    //     $scope.delay = false;
-    //   }, 1000);
-    // };
+    socketio.on('answer', data => {
+      console.log('Socket Stuff in QuizCtrl', data);
+    });
   });
