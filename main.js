@@ -55,10 +55,10 @@ io.on('connection', socket => {
   // emits id specific to each new connection
   console.log('\nSocket connection made, socket.id:\n', socket.id, '\n');
   // listen for 'newMatch' event (defined on front end)
-  // socket.on('newMatch', function(data) {
-  //   console.log('\nNew Match created:\n', data, '\n');
-  //   socket.broadcast.emit('newMatch', data); // broadcast to other sockets
-  // });
+  socket.on('newMatch', function(data) {
+    console.log('\nNew Match created:\n', data, '\n');
+    io.sockets.emit('newMatch', data); // emit data to all connected sockets
+  });
   // listen for 'answer' event
   socket.on('answer', function(data) {
     socket.broadcast.emit('answer', data); // broadcast to other sockets

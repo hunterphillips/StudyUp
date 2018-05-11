@@ -1,10 +1,16 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var Match = sequelize.define('Match', {}, { tableName: 'matches' });
+  var Match = sequelize.define(
+    'Match',
+    {
+      challenger_id: DataTypes.INTEGER,
+      opponent_id: DataTypes.INTEGER
+    },
+    { tableName: 'matches' }
+  );
   Match.associate = function(models) {
-    Match.hasMany(models.User, {
-      foreignKey: 'match_id',
-      constraints: false
+    Match.belongsToMany(models.User, {
+      through: 'user_matches'
     });
     Match.belongsTo(models.Quiz, {
       foreignKey: 'quiz_id',

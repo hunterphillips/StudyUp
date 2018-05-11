@@ -5,48 +5,42 @@
       "role_id": 1,
       "email": "a@a.com",
       "password": "password123",
-      "score": 0,
-      "match_id": null
+      "score": 0
     },
     {
       "username": "Billy",
       "role_id": 2,
       "email": "b@a.com",
       "password": "password123",
-      "score": 0,
-      "match_id": null
+      "score": 0
     },
     {
       "username": "Bobby",
       "role_id": 2,
       "email": "b@b.com",
       "password": "password123",
-      "score": 0,
-      "match_id": null
+      "score": 0
     },
     {
       "username": "Smith",
       "role_id": 1,
       "email": "a@b.com",
       "password": "password123",
-      "score": 0,
-      "match_id": null
+      "score": 0
     },
     {
       "username": "Susie",
       "role_id": 2,
       "email": "b@c.com",
       "password": "password123",
-      "score": 0,
-      "match_id": null
+      "score": 0
     },
     {
       "username": "Sally",
       "role_id": 2,
       "email": "b@d.com",
       "password": "password123",
-      "score": 0,
-      "match_id": null
+      "score": 0
     }
   ]
 }

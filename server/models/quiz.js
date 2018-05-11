@@ -16,9 +16,8 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'quiz_id',
       constraints: false
     });
-    Quiz.hasMany(models.Match, {
-      foreignKey: 'quiz_id',
-      constraints: false
+    Quiz.belongsToMany(models.Match, {
+      through: 'user_matches'
     });
   };
   return Quiz;
