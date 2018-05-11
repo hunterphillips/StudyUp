@@ -11,12 +11,13 @@ angular.module('StudyUp').factory('QuizFactory', $http => {
       return $http.post('/quiz/', obj).then(data => {
         return data;
       });
-    },
-
-    emitAnswer(obj) {
-      return $http.post('/matches', obj).then(data => {
-        return data;
-      });
     }
+
+    // emitAnswer(obj) {
+    //   console.log('\nEMIT ANSWER CALLED\n');
+    //   return $http.post('/matches', obj).then(data => {
+    //     return data;
+    //   });
+    // }
   };
 });

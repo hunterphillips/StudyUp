@@ -53,7 +53,11 @@ angular
       result = result === true ? 1 : 0;
       $scope.score += result;
       QuizFactory.submitAnswer({ user_id: $scope.user.id, result: result });
-      QuizFactory.emitAnswer({ user_id: $scope.user.id, result: result });
+      // emit answer result through socketio
+      socketio.emit('answer', {
+        user_id: $scope.user.id,
+        result: result
+      });
     };
 
     const nextQuestion = () => {
@@ -65,9 +69,15 @@ angular
           $scope.completed = true;
         }
       }, 1800);
+      $timeout.cancel();
     };
 
     socketio.on('answer', data => {
       console.log('Socket Stuff in QuizCtrl', data);
+      if (!data.result) {
+        $scope.matchTurn = `User ${data.user_id} missed this question`;
+      } else {
+        $scope.matchTurn = `User ${data.user_id} answered this correctly`;
+      }
     });
   });

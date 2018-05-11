@@ -5,7 +5,12 @@
 
 .sub-header {
   font-size: 1.1em;
+  line-height: 2em;
   background-color: #e8e8e8;
+}
+
+.valid-msg {
+  padding-top: 0.5em;
 }
 
 // ----- Nav ----- //
@@ -110,6 +115,7 @@
   transition: opacity 0.2s;
 }
 .submit-div span {
+  display: block;
   font-size: 0.8em;
   color: #f57e7e;
   font-weight: 700;
@@ -123,6 +129,7 @@
 // ------ Home Menu ------ //
 .home-view {
   text-align: center;
+  text-transform: uppercase;
 }
 
 .enrolled-section {
@@ -130,7 +137,25 @@
 }
 
 .course-listing {
-  margin: 0.6em 0em;
+  text-transform: uppercase;
+  margin: 0.6em auto;
+  background: lightblue;
+  background: #5dceb1f7;
+  opacity: 0.85;
+  line-height: 3em;
+  transition: all linear 0.15s;
+  width: 95%;
+}
+.course-listing:hover {
+  opacity: 1;
+}
+
+.course-title {
+  color: white;
+}
+.course-title:hover {
+  color: white;
+  cursor: default;
 }
 
 .addCourse {
@@ -161,6 +186,76 @@
 // ------ Course view ------ //
 .course-container {
   text-align: center;
+  text-transform: uppercase;
+}
+
+.match-header {
+  line-height: 2em;
+}
+
+.quiz-label {
+  width: 100%;
+  display: block;
+}
+
+.quiz-select-name {
+  display: block;
+  margin: 0.65em auto;
+  width: 95%;
+  max-width: 50em;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  background: #f56b7b;
+  line-height: 3.5em;
+  opacity: 0.8;
+  transition: all 0.25s linear;
+  backface-visibility: hidden;
+}
+.quiz-select-name:hover {
+  line-height: 4.5em;
+}
+
+.quiz-selected {
+  opacity: 1;
+  line-height: 4.5em;
+}
+
+.opponent-select-container {
+  position: absolute;
+  width: 100%;
+  top: 22em;
+}
+
+.opponent-label {
+  display: block;
+  line-height: 1.75em;
+  margin-bottom: 0.5em;
+}
+
+.match-submit-container {
+  position: absolute;
+  width: 100%;
+  top: 28em;
+}
+
+.match-btn {
+  border: none;
+  background: #34e4b7;
+  width: 100%;
+  border-radius: 0;
+  color: white;
+  letter-spacing: 0.5px;
+  font-size: 1.15em;
+  height: 2.4em;
+  transition: all 0.25s linear;
+}
+.match-btn:hover {
+  color: white;
+  opacity: 0.87;
+}
+.match-btn:disabled {
+  background-color: #26ab89b3;
 }
 
 // ------ Quiz view ------ //
@@ -187,7 +282,7 @@
   border-radius: 3px;
 }
 
-.answer-checkbox {
+.checkbox {
   margin-right: 1em;
   display: none;
 }

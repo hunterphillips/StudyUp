@@ -1,7 +1,6 @@
 'use strict';
 const express = require('express');
 const bodyParser = require('body-parser');
-const socket = require('socket.io');
 // auth
 const session = require('express-session');
 const passport = require('passport');
@@ -48,20 +47,26 @@ const server = app.listen(3000, () => {
 });
 
 // Socket setup
+const socket = require('socket.io');
 const io = socket(server);
 
 // event handling
 io.on('connection', socket => {
   // emits id specific to each new connection
-  console.log('Socket connection made, socket.id:', socket.id);
-  // listen for 'answer' event (defined on front end)
+  console.log('\nSocket connection made, socket.id:\n', socket.id, '\n');
+  // listen for 'newMatch' event (defined on front end)
+  socket.on('newMatch', function(data) {
+    console.log('\nNew Match created:\n', data, '\n');
+    // socket.broadcast.emit('newMatch', data); // broadcast to other sockets
+  });
+  // listen for 'answer' event
   socket.on('answer', function(data) {
-    io.sockets.emit('answer', data); // emit data to all connected sockets
+    socket.broadcast.emit('answer', data); // broadcast to other sockets
   });
 });
 
 //
-app.post('/matches', (req, res) => {
-  io.emit('answer', req.body);
-  return res.status(200);
-});
+// app.post('/matches', (req, res) => {
+//   io.emit('answer', req.body);
+//   return res.status(200);
+// });

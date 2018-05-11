@@ -1,18 +1,18 @@
 <h1 class="page-header">Quiz Page</h1>
 <section class="quiz-container">
-  <!-- loading gif -->
-  <!-- <div class="loading-div" ng-show="delay">
-    <img src="/images/double-ring-spinner.gif">
-  </div> -->
 
   <div ng-repeat="question in questions">
     <!-- question wrapper -->
     <div class="question-wrap" ng-show="$index == currentQuestion">
+      <p ng-show="matchTurn">{{matchTurn}}</p>
       <h3>{{question.description}}</h3>
 
       <form class="answers-form">
+        <!-- answer choices, in random order -->
         <label class="answer-label" ng-repeat="answer in question.answers | orderBy:randomSort">
-          <input type="checkbox" class="answer-checkbox" ng-disabled="selected{{answer.question_id}}" ng-click="select()">
+          <!-- disable inputs after selection is made -->
+          <input type="checkbox" class="checkbox" ng-disabled="selected{{answer.question_id}}" ng-click="select()">
+          <!-- highlight correct answer as green, wrong answer as red IF wrong answer is selected -->
           <span ng-model="entity.isChecked" ng-class="{ 'submitted': selected{{answer.question_id}}, 'correct': selected{{answer.question_id}}&&{{answer.id == question.answer_id}}, 'wrong': selected&&{{answer.id != question.answer_id}} }">
             {{answer.description}}</span>
         </label>

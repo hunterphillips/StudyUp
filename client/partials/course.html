@@ -1,7 +1,32 @@
 <navbar></navbar>
 <div class="course-container">
-  <h1 class="sub-header">Quizzes</h1>
-  <div ng-repeat="quiz in quizzes">
-    <a ng-click="takeQuiz()">{{quiz.title}}</a>
-  </div>
+  <!-- form -->
+  <form class="matchForm" name="matchForm">
+    <h1 class="sub-header">New Game</h1>
+    <!-- quiz selection -->
+    <div class="select-wrap quiz-select-wrap">
+      <label class="quiz-label" ng-repeat="quiz in quizzes">
+        <input type="radio" name="quizSelect" class="checkbox" value="{{quiz.id}}" ng-click="selectQuiz()" ng-model="selectedQuiz"
+          required>
+        <span class="quiz-select-name" ng-class="{ 'quiz-selected': selected{{quiz.id}} }">
+          {{quiz.title}}</span>
+      </label>
+    </div>
+    <!-- opponent selection -->
+    <div class="select-wrap opponent-select-container">
+      <label class="sub-header opponent-label" for="opponent">Opponent</label>
+      <div class="opponent-select select">
+        <select name="opponent" ng-model="selectedOpponent" required>
+          <option value="" selected="selected" disabled>Players</option>
+          <option value="{{student.id}}" ng-repeat="student in classMates">{{student.username}}</option>
+        </select>
+      </div>
+    </div>
+    <!-- submission -->
+    <div class="submit-div match-submit-container">
+      <button class="button match-btn" ng-click="startMatch()" ng-disabled="!matchForm.$valid">PLAY NOW</button>
+      <span ng-show="!matchForm.$valid">*Please fill in all required fields</span>
+    </div>
+  </form>
+  <!-- /form  -->
 </div>

@@ -5,7 +5,8 @@ angular
     $scope,
     HomeFactory,
     $location,
-    AuthFactory
+    AuthFactory,
+    socketio
   ) {
     // get current user, set associated $scope values
     $scope.$on('handleBroadcast', function(event, currentUser) {
