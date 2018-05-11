@@ -5,15 +5,28 @@ module.exports.addMatch = (
   res,
   next
 ) => {
-  console.log('\naddMatch in matchCrl\n');
+  //Add new match
   let Match = app.get('models').Match;
   Match.create({
     quiz_id: quiz
-  })
-    .then(data => {
-      console.log('Match added?', data);
-    })
-    .catch(err => {
-      next(err);
+  }).then(newMatch => {
+    console.log('Match added?', newMatch.dataValues);
+    // Update match_id for match participants
+    let User = app.get('models').User;
+    User.update(
+      { match_id: newMatch.dataValues.id },
+      { where: { id: challenger } }
+    ).then(() => {
+      User.update(
+        { match_id: newMatch.dataValues.id },
+        { where: { id: opponent } }
+      )
+        .then(data => {
+          res.status(201).end();
+        })
+        .catch(err => {
+          next(err);
+        });
     });
+  });
 };

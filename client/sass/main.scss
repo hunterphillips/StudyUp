@@ -139,12 +139,13 @@
 .course-listing {
   text-transform: uppercase;
   margin: 0.6em auto;
-  background: lightblue;
   background: #5dceb1f7;
+  color: white;
   opacity: 0.85;
   line-height: 3em;
   transition: all linear 0.15s;
   width: 95%;
+  backface-visibility: hidden;
 }
 .course-listing:hover {
   opacity: 1;
@@ -158,18 +159,15 @@
   cursor: default;
 }
 
-.addCourse {
-  width: 2.1em;
-  height: 1.1em;
-  font-size: 18px;
+.course-listing span {
   position: absolute;
-  margin-left: 1em;
-  opacity: 0.55;
+  font-style: inherit;
+  font-weight: inherit;
+  font-size: 1.5em;
+  line-height: 1.95em;
+  padding-left: 1em;
+  right: 2em;
   backface-visibility: hidden;
-  transition: opacity 0.4s;
-}
-.addCourse:hover {
-  opacity: 0.9;
 }
 
 .logout-div {
