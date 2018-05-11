@@ -6,7 +6,10 @@ module.exports.getCourseById = (req, res, next) => {
   Course.findById(req.params.id).then(foundCourse => {
     foundCourse.getQuizzes().then(quizzes => {
       let course = { title: foundCourse.title, quizzes: quizzes };
-      res.status(200).json(course);
+      foundCourse.getUsers().then(users => {
+        course.users = users;
+        res.status(200).json(course);
+      });
     });
   });
 };

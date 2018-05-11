@@ -39,9 +39,21 @@ models.sequelize
   .then(() => {
     return models.Answer.bulkCreate(answers);
   })
-  // add User 1 to Course 1
+  // add Users 1, 2, 3 to Course 1
   .then(() => {
     return models.User.findById(1);
+  })
+  .then(foundUser => {
+    return foundUser.addCourse(1);
+  })
+  .then(() => {
+    return models.User.findById(2);
+  })
+  .then(foundUser => {
+    return foundUser.addCourse(1);
+  })
+  .then(() => {
+    return models.User.findById(3);
   })
   .then(foundUser => {
     return foundUser.addCourse(1);
