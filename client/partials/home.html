@@ -5,8 +5,8 @@
     <!-- enrolled section -->
     <div class="enrolled-section">
       <h1 class="sub-header">Your Courses</h1>
-      <div class="course-listing" ng-repeat="course in courses" ng-click="goToClass()">
-        <a class="course-title">{{course.title}}</a>
+      <div class="course-listing" ng-repeat="course in courses">
+        <a href="#!/course/{{course.id}}/?user={{user.id}}" class="course-title">{{course.title}}</a>
       </div>
     </div>
     <!-- available section (hide if none) -->

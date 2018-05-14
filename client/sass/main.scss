@@ -25,6 +25,9 @@
   font-size: 1.5em;
   line-height: 3.25rem;
 }
+.nav-menu {
+  margin-left: auto;
+}
 
 .logo {
   font-family: magetta;
@@ -187,13 +190,17 @@
   text-transform: uppercase;
 }
 
-.match-header {
+.matchForm-header {
   line-height: 2em;
+  margin-bottom: 1em;
 }
 
-.quiz-label {
-  width: 100%;
-  display: block;
+.matchForm {
+  margin-bottom: 1em;
+}
+
+.select-wrap {
+  margin-bottom: 1em;
 }
 
 .quiz-select-name {
@@ -211,30 +218,17 @@
   backface-visibility: hidden;
 }
 .quiz-select-name:hover {
-  line-height: 4.5em;
+  opacity: 1;
 }
 
 .quiz-selected {
   opacity: 1;
-  line-height: 4.5em;
-}
-
-.opponent-select-container {
-  position: absolute;
-  width: 100%;
-  top: 22em;
 }
 
 .opponent-label {
   display: block;
   line-height: 1.75em;
-  margin-bottom: 0.5em;
-}
-
-.match-submit-container {
-  position: absolute;
-  width: 100%;
-  top: 28em;
+  margin-bottom: 0.75em;
 }
 
 .match-btn {
@@ -257,6 +251,11 @@
 }
 
 // ------ Quiz view ------ //
+.match-header {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
 .question-wrap {
   position: absolute;
   width: 89%;

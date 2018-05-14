@@ -1,8 +1,8 @@
 'use strict';
 angular.module('StudyUp').factory('CourseFactory', $http => {
   return {
-    getCourseInfo(id) {
-      return $http.get(`/course/${id}`).then(courseInfo => {
+    getCourseInfo(id, user) {
+      return $http.get(`/course/${id}?user=${user}`).then(courseInfo => {
         return courseInfo.data;
       });
     },

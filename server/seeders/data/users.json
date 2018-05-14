@@ -10,35 +10,35 @@
     {
       "username": "Billy",
       "role_id": 2,
-      "email": "b@a.com",
+      "email": "a@b.com",
       "password": "password123",
       "score": 0
     },
     {
       "username": "Bobby",
       "role_id": 2,
-      "email": "b@b.com",
+      "email": "a@c.com",
       "password": "password123",
       "score": 0
     },
     {
       "username": "Smith",
       "role_id": 1,
-      "email": "a@b.com",
+      "email": "a@d.com",
       "password": "password123",
       "score": 0
     },
     {
       "username": "Susie",
       "role_id": 2,
-      "email": "b@c.com",
+      "email": "a@e.com",
       "password": "password123",
       "score": 0
     },
     {
       "username": "Sally",
       "role_id": 2,
-      "email": "b@d.com",
+      "email": "a@f.com",
       "password": "password123",
       "score": 0
     }

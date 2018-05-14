@@ -1,16 +1,23 @@
 'use strict';
 
 module.exports.getCourseList = (req, res, next) => {
-  const Course = req.app.get('models').Course;
-  const User = req.app.get('models').User;
   const catalog = {};
 
+  const User = req.app.get('models').User;
   User.findById(req.user.id).then(user => {
     user.getCourses().then(foundCourses => {
       catalog.userCourses = foundCourses;
-      Course.findAll().then(courses => {
-        catalog.available = courses;
-        res.status(200).json(catalog);
+      user.getMatches().then(matches => {
+        catalog.matches = matches;
+        const Course = req.app.get('models').Course;
+        Course.findAll()
+          .then(courses => {
+            catalog.available = courses;
+            res.status(200).json(catalog);
+          })
+          .catch(err => {
+            next(err);
+          });
       });
     });
   });

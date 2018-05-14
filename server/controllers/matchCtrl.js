@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports.addMatch = (
-  { app, body: { quiz, challenger, opponent } },
+  { app, body: { quiz, challenger, opponent, course } },
   res,
   next
 ) => {
@@ -9,6 +9,7 @@ module.exports.addMatch = (
   let Match = app.get('models').Match;
   Match.create({
     quiz_id: quiz,
+    course_id: course,
     challenger_id: challenger,
     opponent_id: opponent
   }).then(newMatch => {
@@ -19,7 +20,7 @@ module.exports.addMatch = (
         User.findById(opponent)
           .then(foundUserTwo => {
             foundUserTwo.addMatch(newMatch.dataValues.id).then(data => {
-              res.status(201).end();
+              res.status(201).json(data);
             });
           })
           .catch(err => {
@@ -28,4 +29,22 @@ module.exports.addMatch = (
       });
     });
   });
+};
+
+module.exports.removeMatch = (
+  { app, body: { match_id, user_id } },
+  res,
+  next
+) => {
+  const { sequelize } = app.get('models');
+  sequelize
+    .query(
+      `delete from user_matches where "MatchId"=${match_id} and "UserId"=${user_id}`
+    )
+    .then(data => {
+      res.status(201).json(data);
+    })
+    .catch(err => {
+      next(err);
+    });
 };
