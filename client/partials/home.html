@@ -6,17 +6,16 @@
     <div class="enrolled-section">
       <h1 class="sub-header">Your Courses</h1>
       <div class="course-listing" ng-repeat="course in courses">
-        <a class="course-title" ng-click="goToClass()">{{course.title}}</a>
+        <a href="#!/course/{{course.id}}/?user={{user.id}}" class="course-title">{{course.title}}</a>
       </div>
     </div>
     <!-- available section (hide if none) -->
     <div class="available-section" ng-hide="!availableCourses.length">
       <h1 class="sub-header">Available Courses</h1>
 
-      <div class="course-listing" ng-repeat="course in availableCourses">
-        <p>{{course.title}}
-          <a class="button is-primary is-outlined addCourse" ng-click="addCourse()">+</a>
-        </p>
+      <div class="course-listing" ng-repeat="course in availableCourses" ng-click="addCourse()">
+        <a class="course-title">{{course.title}}</a>
+        <span>+</span>
       </div>
     </div>
 

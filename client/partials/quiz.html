@@ -1,6 +1,5 @@
-<h1 class="page-header">Quiz Page</h1>
 <section class="quiz-container">
-
+  <h1 class="sub-header match-header">{{user.username}} VS {{opponent.username}}</h1>
   <div ng-repeat="question in questions">
     <!-- question wrapper -->
     <div class="question-wrap" ng-show="$index == currentQuestion">
@@ -24,7 +23,7 @@
   <div class="finished-container question-wrap" ng-show="completed">
     <h1>Results</h1>
     <p>{{score}} %</p>
-    <a href back>Back to Course menu</a>
+    <a href back ng-click="endGame()">Back to Course menu</a>
   </div>
 
 </section>

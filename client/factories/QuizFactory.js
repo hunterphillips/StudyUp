@@ -1,9 +1,15 @@
 'use strict';
 angular.module('StudyUp').factory('QuizFactory', $http => {
   return {
-    getQuizQuestions(id) {
-      return $http.get(`/quiz/${id}`).then(questions => {
-        return questions.data;
+    getQuizInfo(id, match) {
+      return $http.get(`/quiz/${id}?match=${match}`).then(quiz => {
+        return quiz.data;
+      });
+    },
+
+    getOpponentInfo(id) {
+      return $http.get(`/opponent/${id}`).then(user => {
+        return user.data;
       });
     },
 
@@ -11,13 +17,10 @@ angular.module('StudyUp').factory('QuizFactory', $http => {
       return $http.post('/quiz/', obj).then(data => {
         return data;
       });
-    }
+    },
 
-    // emitAnswer(obj) {
-    //   console.log('\nEMIT ANSWER CALLED\n');
-    //   return $http.post('/matches', obj).then(data => {
-    //     return data;
-    //   });
-    // }
+    endUserMatch(id, userMatch) {
+      return $http.post(`/match/${id}`, userMatch);
+    }
   };
 });

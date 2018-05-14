@@ -2,7 +2,7 @@
 <div class="course-container">
   <!-- form -->
   <form class="matchForm" name="matchForm">
-    <h1 class="sub-header">New Game</h1>
+    <h1 class="sub-header matchForm-header">New Game</h1>
     <!-- quiz selection -->
     <div class="select-wrap quiz-select-wrap">
       <label class="quiz-label" ng-repeat="quiz in quizzes">
@@ -14,12 +14,14 @@
     </div>
     <!-- opponent selection -->
     <div class="select-wrap opponent-select-container">
-      <label class="sub-header opponent-label" for="opponent">Opponent</label>
+      <label class="sub-header matchForm-header opponent-label" for="opponent">Opponent</label>
       <div class="opponent-select select">
         <select name="opponent" ng-model="selectedOpponent" required>
           <option value="" selected="selected" disabled>Players</option>
           <option value="{{student.id}}" ng-repeat="student in classMates">{{student.username}}</option>
+          <!-- <option value="{{}}">Random</option> -->
         </select>
+        <!-- <button class="button">Random</button> -->
       </div>
     </div>
     <!-- submission -->
@@ -28,5 +30,12 @@
       <span ng-show="!matchForm.$valid">*Please fill in all required fields</span>
     </div>
   </form>
-  <!-- /form  -->
+  <!-- Active Matches section -->
+  <!-- ng-hide="!matches.length" -->
+  <div class="active-matches-container">
+    <h1 class="sub-header matchForm-header">Active Games</h1>
+    <div class="course-listing match-listing" ng-repeat="match in matches" ng-click="joinMatch()">
+      <a class="course-title">{{match.opponentName}}</a>
+    </div>
+  </div>
 </div>

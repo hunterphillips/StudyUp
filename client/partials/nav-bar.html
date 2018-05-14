@@ -6,8 +6,33 @@
     <!-- height: 1.5em; position: absolute; top: .8em; left: .35em; -->
 
     <a class="navbar-item logo" ng-href="#!/home">StudyUp</a>
-
     <h2 class="nav-header">{{title}}</h2>
 
+    <div class="dropdown is-right navbar-item nav-menu" ng-class="{'is-active': show}" ng-click="show = !show">
+      <div class="dropdown-trigger">
+        <but2ton class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+          <span>Menu</span>
+          <span class="icon is-small notify-icn" ng-show="notification">
+            <img src="../styles/images/chat.png" alt="">
+          </span>
+          </button>
+      </div>
+      <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <div class="dropdown-content">
+          <a href="#!/course/{{match.course_id}}/?user={{user.id}}" class="dropdown-item" ng-show="matches.length" ng-repeat="match in matches">
+            New active game
+          </a>
+          <a class="dropdown-item">
+            Other dropdown item
+          </a>
+          <hr class="dropdown-divider">
+          <a href="#!/home" class="dropdown-item">
+            Home
+          </a>
+        </div>
+      </div>
+    </div>
+
   </div>
+
 </nav>

@@ -50,23 +50,33 @@ const server = app.listen(3000, () => {
 const socket = require('socket.io');
 const io = socket(server);
 
+// Store clients
+const clients = [];
+
 // event handling
 io.on('connection', socket => {
-  // emits id specific to each new connection
-  console.log('\nSocket connection made, socket.id:\n', socket.id, '\n');
+  socket.emit('newSocket', socket.id); // emit socket id to self client
+
+  // if user exists -> replace socket id, else add user
+  socket.on('newUser', function(data) {
+    if (clients.find(client => client.user_id === data.user_id)) {
+      clients[
+        clients.map(user => user.user_id).indexOf(data.user_id)
+      ].socketId =
+        data.socketId;
+    } else {
+      clients.push(data);
+    }
+  });
+
   // listen for 'newMatch' event (defined on front end)
   socket.on('newMatch', function(data) {
     console.log('\nNew Match created:\n', data, '\n');
-    // socket.broadcast.emit('newMatch', data); // broadcast to other sockets
-  });
-  // listen for 'answer' event
-  socket.on('answer', function(data) {
-    socket.broadcast.emit('answer', data); // broadcast to other sockets
+    socket // emit to target client (by socketId)
+      .to(
+        clients[clients.map(user => user.user_id).indexOf(data.opponent)]
+          .socketId
+      )
+      .emit('newMatch', data);
   });
 });
-
-//
-// app.post('/matches', (req, res) => {
-//   io.emit('answer', req.body);
-//   return res.status(200);
-// });

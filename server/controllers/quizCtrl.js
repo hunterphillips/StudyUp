@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.getQuizQuestions = (req, res, next) => {
+module.exports.getQuiz = (req, res, next) => {
   const Question = req.app.get('models').Question;
   const Answer = req.app.get('models').Answer;
   // sequelize method return all questions with matching quiz_id
@@ -12,9 +12,17 @@ module.exports.getQuizQuestions = (req, res, next) => {
     foundQuestions.forEach(question => {
       chain.push(getAnswers(Answer, question));
     });
-    Promise.all(chain).then(() => {
-      res.status(200).json(foundQuestions);
-    });
+    Promise.all(chain)
+      .then(() => {
+        let quiz = {
+          match: +req.query.match,
+          questions: foundQuestions
+        };
+        res.status(200).json(quiz);
+      })
+      .catch(err => {
+        next(err);
+      });
   });
 };
 
@@ -31,6 +39,17 @@ const getAnswers = (model, question) => {
         resolve(question);
       });
   });
+};
+
+module.exports.getOpponent = (req, res, next) => {
+  const User = req.app.get('models').User;
+  User.findById(req.params.id)
+    .then(user => {
+      res.status(200).json(user);
+    })
+    .catch(err => {
+      next(err);
+    });
 };
 
 module.exports.updateUserScore = (

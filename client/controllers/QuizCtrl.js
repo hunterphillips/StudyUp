@@ -20,15 +20,23 @@ angular
     });
 
     $scope.$on('$viewContentLoaded', function() {
-      QuizFactory.getQuizQuestions(+$routeParams.id).then(data => {
-        $scope.questions = data;
-        shuffleArray($scope.questions);
-        // apply default 'selected' value to each group of question answers
-        $scope.questions.forEach(question => {
-          $scope[`selected${question.id}`] = false; // ng-disabled in template
-          // randomize answer order
-          shuffleArray(question.answers);
-        });
+      QuizFactory.getQuizInfo(+$routeParams.id, $routeParams.match).then(
+        quiz => {
+          console.log('QuizCtrl quiz info:', quiz);
+          $scope.matchId = quiz.match;
+          $scope.questions = quiz.questions;
+          shuffleArray($scope.questions);
+          // apply default 'selected' value to each group of question answers
+          $scope.questions.forEach(question => {
+            $scope[`selected${question.id}`] = false; // ng-disabled in template
+            // randomize answer order
+            shuffleArray(question.answers);
+          });
+        }
+      );
+      QuizFactory.getOpponentInfo($routeParams.opponent).then(foundOpponent => {
+        // console.log('QuizCtrl returned opponent', foundOpponent);
+        $scope.opponent = foundOpponent;
       });
     });
 
@@ -53,11 +61,6 @@ angular
       result = result === true ? 1 : 0;
       $scope.score += result;
       QuizFactory.submitAnswer({ user_id: $scope.user.id, result: result });
-      // emit answer result through socketio
-      socketio.emit('answer', {
-        user_id: $scope.user.id,
-        result: result
-      });
     };
 
     const nextQuestion = () => {
@@ -72,12 +75,28 @@ angular
       $timeout.cancel();
     };
 
-    socketio.on('answer', data => {
-      console.log('Socket Stuff in QuizCtrl', data);
-      if (!data.result) {
-        $scope.matchTurn = `User ${data.user_id} missed this question`;
-      } else {
-        $scope.matchTurn = `User ${data.user_id} answered this correctly`;
-      }
-    });
+    // remove
+    $scope.endGame = () => {
+      QuizFactory.endUserMatch($scope.matchId, {
+        user_id: $scope.user.id,
+        match_id: $scope.matchId
+      }).then(() => {
+        console.log('match ended');
+      });
+    };
+
+    // emit quiz result through socketio
+    // socketio.emit('finished', {
+    //   user_id: $scope.user.id,
+    //   result: $scope.score
+    // });
+
+    // socketio.on('answer', data => {
+    //   // if wrong answer, 'end quiz' by skipping to end
+    //   if (!data.result) {
+    //     $scope.currentQuestion = $scope.questions.length - 1;
+    //   } else {
+    //     $scope.matchTurn = `User ${data.user_id} answered this correctly`;
+    //   }
+    // });
   });

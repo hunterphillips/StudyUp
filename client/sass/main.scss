@@ -25,6 +25,9 @@
   font-size: 1.5em;
   line-height: 3.25rem;
 }
+.nav-menu {
+  margin-left: auto;
+}
 
 .logo {
   font-family: magetta;
@@ -139,12 +142,13 @@
 .course-listing {
   text-transform: uppercase;
   margin: 0.6em auto;
-  background: lightblue;
   background: #5dceb1f7;
+  color: white;
   opacity: 0.85;
   line-height: 3em;
   transition: all linear 0.15s;
   width: 95%;
+  backface-visibility: hidden;
 }
 .course-listing:hover {
   opacity: 1;
@@ -158,18 +162,15 @@
   cursor: default;
 }
 
-.addCourse {
-  width: 2.1em;
-  height: 1.1em;
-  font-size: 18px;
+.course-listing span {
   position: absolute;
-  margin-left: 1em;
-  opacity: 0.55;
+  font-style: inherit;
+  font-weight: inherit;
+  font-size: 1.5em;
+  line-height: 1.95em;
+  padding-left: 1em;
+  right: 2em;
   backface-visibility: hidden;
-  transition: opacity 0.4s;
-}
-.addCourse:hover {
-  opacity: 0.9;
 }
 
 .logout-div {
@@ -189,13 +190,17 @@
   text-transform: uppercase;
 }
 
-.match-header {
+.matchForm-header {
   line-height: 2em;
+  margin-bottom: 1em;
 }
 
-.quiz-label {
-  width: 100%;
-  display: block;
+.matchForm {
+  margin-bottom: 1em;
+}
+
+.select-wrap {
+  margin-bottom: 1em;
 }
 
 .quiz-select-name {
@@ -213,30 +218,17 @@
   backface-visibility: hidden;
 }
 .quiz-select-name:hover {
-  line-height: 4.5em;
+  opacity: 1;
 }
 
 .quiz-selected {
   opacity: 1;
-  line-height: 4.5em;
-}
-
-.opponent-select-container {
-  position: absolute;
-  width: 100%;
-  top: 22em;
 }
 
 .opponent-label {
   display: block;
   line-height: 1.75em;
-  margin-bottom: 0.5em;
-}
-
-.match-submit-container {
-  position: absolute;
-  width: 100%;
-  top: 28em;
+  margin-bottom: 0.75em;
 }
 
 .match-btn {
@@ -259,6 +251,11 @@
 }
 
 // ------ Quiz view ------ //
+.match-header {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
 .question-wrap {
   position: absolute;
   width: 89%;

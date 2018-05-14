@@ -15,9 +15,9 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'role_id',
       constraints: false
     });
-    User.belongsTo(models.Match, {
-      foreignKey: 'match_id',
-      constraints: false
+    User.belongsToMany(models.Match, {
+      as: 'Matches',
+      through: 'user_matches'
     });
     User.belongsToMany(models.Course, {
       as: 'Courses',

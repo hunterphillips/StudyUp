@@ -16,9 +16,14 @@ angular
       getCurrentSchedule();
     });
 
-    $scope.goToClass = function() {
-      $location.path(`/course/${this.course.id}`);
-    };
+    // set socket id for new client connection
+    socketio.on('newSocket', data => {
+      // assign new socket to current user
+      socketio.emit('newUser', {
+        user_id: $scope.user.id,
+        socketId: data
+      });
+    });
 
     $scope.addCourse = function() {
       HomeFactory.addUserCourse({
@@ -34,6 +39,11 @@ angular
       HomeFactory.getUserCourses($scope.user.id).then(catalog => {
         $scope.courses = catalog.userCourses;
         $scope.availableCourses = catalog.available;
+        $scope.matches = catalog.matches;
+        console.log('HomeCtrl matches:', $scope.matches);
+        if ($scope.matches.length) {
+          $scope.notification = true;
+        }
         // filter user courses out of Available list
         $scope.availableCourses = $scope.availableCourses.filter(available => {
           if ($scope.courses.find(course => course.id === available.id)) {
@@ -51,4 +61,10 @@ angular
         $location.path(`/`);
       });
     };
+
+    // Listen for newMatch event, add to user notifications
+    socketio.on('newMatch', data => {
+      $scope.matches.push(data);
+      $scope.notification = true;
+    });
   });
