@@ -1,5 +1,6 @@
 <section class="quiz-container">
   <h1 class="sub-header match-header">{{user.username}} VS {{opponent.username}}</h1>
+
   <div ng-repeat="question in questions">
     <!-- question wrapper -->
     <div class="question-wrap" ng-show="$index == currentQuestion">
@@ -12,12 +13,19 @@
           <!-- disable inputs after selection is made -->
           <input type="checkbox" class="checkbox" ng-disabled="selected{{answer.question_id}}" ng-click="select()">
           <!-- highlight correct answer as green, wrong answer as red IF wrong answer is selected -->
-          <span ng-model="entity.isChecked" ng-class="{ 'submitted': selected{{answer.question_id}}, 'correct': selected{{answer.question_id}}&&{{answer.id == question.answer_id}}, 'wrong': selected&&{{answer.id != question.answer_id}} }">
+          <span ng-model="entity.isChecked" ng-class="{ 'submitted': selected{{answer.question_id}}, 'correct': selected{{answer.question_id}}&&{{answer.id == question.answer_id}}||selected0&&{{answer.id == question.answer_id}}, 'wrong': selected&&{{answer.id != question.answer_id}}||selected0&&{{answer.id != question.answer_id}} }">
             {{answer.description}}</span>
         </label>
       </form>
     </div>
-    <!-- question wrapper -->
+    <!-- /question wrapper -->
+  </div>
+  <!-- timer -->
+  <div class="countdown quiz-timer-wrap" ng-hide="completed">
+    <span class="timer-count">{{timerCount}}</span>
+    <svg ng-hide="timeUp">
+      <circle r="18" cx="20" cy="20"></circle>
+    </svg>
   </div>
   <!-- Finished Quiz -->
   <div class="finished-container question-wrap" ng-show="completed">

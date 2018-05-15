@@ -25,21 +25,29 @@ angular
   })
 
   // Nav Directive
-  .directive('navbar', function() {
+  .directive('navbar', function () {
     return {
       scope: true,
       restrict: 'EA',
       templateUrl: 'partials/nav-bar.html'
     };
   })
+  // Footer
+  .directive('footer', function () {
+    return {
+      scope: true,
+      restrict: 'EA',
+      templateUrl: 'partials/footer.html'
+    };
+  })
   // Back Button Directive
   .directive('back', [
     '$window',
-    function($window) {
+    function ($window) {
       return {
         restrict: 'A',
-        link: function(scope, elem) {
-          elem.bind('click', function() {
+        link: function (scope, elem) {
+          elem.bind('click', function () {
             $window.history.back();
           });
         }
@@ -50,21 +58,21 @@ angular
   // service to wrap the socket object returned by Socket.IO
   .factory('socketio', [
     '$rootScope',
-    function($rootScope) {
+    function ($rootScope) {
       const socket = io.connect();
       return {
-        on: function(eventName, callback) {
-          socket.on(eventName, function() {
+        on: function (eventName, callback) {
+          socket.on(eventName, function () {
             var args = arguments;
-            $rootScope.$apply(function() {
+            $rootScope.$apply(function () {
               callback.apply(socket, args);
             });
           });
         },
-        emit: function(eventName, data, callback) {
-          socket.emit(eventName, data, function() {
+        emit: function (eventName, data, callback) {
+          socket.emit(eventName, data, function () {
             var args = arguments;
-            $rootScope.$apply(function() {
+            $rootScope.$apply(function () {
               if (callback) {
                 callback.apply(socket, args);
               }
@@ -80,7 +88,7 @@ angular
 angular
   .module('StudyUp')
   .run(($rootScope, $location, $route, $window, AuthFactory) => {
-    $rootScope.$on('$routeChangeSuccess', function() {
+    $rootScope.$on('$routeChangeSuccess', function () {
       AuthFactory.setUserStatus().then(() => {
         console.log('user', AuthFactory.getCurrentUser());
         AuthFactory.broadcastUserLogin(AuthFactory.getCurrentUser());

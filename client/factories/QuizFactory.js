@@ -13,7 +13,7 @@ angular.module('StudyUp').factory('QuizFactory', $http => {
       });
     },
 
-    submitAnswer(obj) {
+    submitScore(obj) {
       return $http.post('/quiz/', obj).then(data => {
         return data;
       });

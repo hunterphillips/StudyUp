@@ -37,6 +37,9 @@ const getAnswers = (model, question) => {
       .then(answers => {
         question.dataValues.answers = answers;
         resolve(question);
+      })
+      .catch(err => {
+        reject(err);
       });
   });
 };

@@ -40,7 +40,7 @@ angular
         $scope.courses = catalog.userCourses;
         $scope.availableCourses = catalog.available;
         $scope.matches = catalog.matches;
-        console.log('HomeCtrl matches:', $scope.matches);
+        // notify user if they have open matches
         if ($scope.matches.length) {
           $scope.notification = true;
         }

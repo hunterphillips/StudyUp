@@ -1,7 +1,7 @@
 'use strict';
 angular
   .module('StudyUp')
-  .controller('AuthCtrl', function($scope, AuthFactory, $location, $http) {
+  .controller('AuthCtrl', function ($scope, AuthFactory, $location) {
     $scope.account = {};
 
     $scope.register = () => {
