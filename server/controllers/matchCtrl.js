@@ -1,20 +1,20 @@
 'use strict';
 
 module.exports.addMatch = (
-  { app, body: { quiz, challenger, opponent, course } },
+  { app, body: { quiz, challenger, opponent, course, score } },
   res,
   next
 ) => {
   // Add new match
-  let Match = app.get('models').Match;
+  const { Match, User } = app.get('models');
   Match.create({
     quiz_id: quiz,
     course_id: course,
     challenger_id: challenger,
-    opponent_id: opponent
+    opponent_id: opponent,
+    score: score
   }).then(newMatch => {
     // Add match participants to user_matches
-    let User = app.get('models').User;
     User.findById(challenger).then(foundUser => {
       foundUser.addMatch(newMatch.dataValues.id).then(() => {
         User.findById(opponent)
@@ -31,20 +31,33 @@ module.exports.addMatch = (
   });
 };
 
-module.exports.removeMatch = (
-  { app, body: { match_id, user_id } },
-  res,
-  next
-) => {
-  const { sequelize } = app.get('models');
-  sequelize
-    .query(
-      `delete from user_matches where "MatchId"=${match_id} and "UserId"=${user_id}`
-    )
-    .then(data => {
-      res.status(201).json(data);
+module.exports.getMatch = (req, res, next) => {
+  const { Match } = req.app.get('models');
+  Match.findById(req.params.id)
+    .then(match => {
+      res.status(201).json(match);
     })
     .catch(err => {
       next(err);
     });
+};
+
+module.exports.removeMatch = (
+  { app, body: { match_id, user_id, finalScore } },
+  res,
+  next
+) => {
+  const { sequelize, Match } = app.get('models');
+  Match.update({ score: finalScore }, { where: { id: match_id } }).then(() => {
+    sequelize
+      .query(
+        `delete from user_matches where "MatchId"=${match_id} and "UserId"=${user_id}`
+      )
+      .then(data => {
+        res.status(201).json(data);
+      })
+      .catch(err => {
+        next(err);
+      });
+  });
 };

@@ -86,7 +86,8 @@ angular
         quiz: $scope.selectedQuiz,
         challenger: $scope.user.id,
         opponent: +$scope.selectedOpponent,
-        course: $scope.courseId
+        course: $scope.courseId,
+        score: null
       };
       CourseFactory.postNewMatch(match).then(newMatch => {
         console.log('match added', newMatch);
@@ -108,9 +109,4 @@ angular
         .path(`/quiz/${this.match.quiz_id}`)
         .search({ match: this.match.id, opponent: opponentId });
     };
-
-    // TODO: notify opponent
-    // socketio.on('newMatch', data => {
-    //   console.log('newMatch detected in CourseCtrl', data);
-    // });
   });

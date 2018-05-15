@@ -5,11 +5,12 @@ module.exports = (sequelize, DataTypes) => {
     {
       course_id: DataTypes.INTEGER,
       challenger_id: DataTypes.INTEGER,
-      opponent_id: DataTypes.INTEGER
+      opponent_id: DataTypes.INTEGER,
+      score: DataTypes.INTEGER
     },
     { tableName: 'matches', timestamps: false }
   );
-  Match.associate = function(models) {
+  Match.associate = function (models) {
     Match.belongsToMany(models.User, {
       through: 'user_matches'
     });

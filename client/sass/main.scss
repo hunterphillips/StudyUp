@@ -1,10 +1,7 @@
 // ----- App ----- //
 .app-container {
-  padding: 0.5em 0em;
   max-width: 1024px;
   margin: auto;
-  border-left: 1px solid #00000026;
-  border-right: 1px solid #00000026;
 }
 
 .sub-header {
@@ -21,30 +18,35 @@
 .navbar {
   margin-bottom: 2em;
   padding: 0em 0.5em;
+  background: #080808cf;
+  background: #3e5665;
+  color: white;
 }
 
 .navbar-brand {
   width: 100%;
+  height: 3.5em;
 }
 
 .nav-header {
   position: absolute;
-  width: 98%;
+  width: 97%;
   text-align: center;
   font-weight: 500;
   font-size: 1.5em;
-  line-height: 3.25rem;
+  line-height: 3.5rem;
 }
 
 .nav-score {
   display: block;
   line-height: 0.5em;
   font-size: 0.8em;
-  color: #ff7350e8;
+  color: #7bb4ff;
+  padding-top: 0.5em;
 }
 .nav-score-text {
   font-size: 0.585em;
-  color: #b7b7b7;
+  color: #ff9c7b;
   vertical-align: bottom;
   line-height: 0.7em;
   letter-spacing: 0.3px;
@@ -54,11 +56,17 @@
   margin-left: auto;
 }
 
+.menu-btn {
+  border: none;
+  background: none;
+}
+
 .logo {
   font-family: magetta;
   font-size: 1.4em;
   font-weight: 600;
-  color: #252121;
+  // color: #717171;
+  color: #5c7686ed;
   text-align: center;
   z-index: 2;
 }
@@ -81,6 +89,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 1023px;
   display: flex;
   justify-content: space-around;
 }
@@ -246,6 +255,10 @@
   .course-listing span {
     left: 38em;
   }
+  .app-container {
+    border-left: 1px solid #00000026;
+    border-right: 1px solid #00000026;
+  }
 }
 
 .logout-div {
@@ -329,7 +342,10 @@
 // ------ Quiz view ------ //
 .match-header {
   text-align: center;
+  color: white;
+  font-size: 1.5em;
   margin-bottom: 1em;
+  background: #60d89ec2;
 }
 
 .question-wrap {
@@ -425,4 +441,21 @@ svg circle {
   to {
     stroke-dashoffset: 113px;
   }
+}
+
+// Finished quiz
+.finished-header {
+  font-size: 2.75em;
+  font-weight: 500;
+  margin-bottom: 0.4em;
+}
+
+.finished-a {
+  width: 90%;
+  display: block;
+  margin: 1em auto;
+  background: #2f4a5acc;
+  line-height: 2.5em;
+  border-radius: 5px;
+  color: white;
 }

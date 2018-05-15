@@ -49,7 +49,6 @@ const server = app.listen(3000, () => {
 // Socket setup
 const socket = require('socket.io');
 const io = socket(server);
-
 // Store clients
 const clients = [];
 
@@ -78,5 +77,20 @@ io.on('connection', socket => {
           .socketId
       )
       .emit('newMatch', data);
+  });
+
+  // notify gameOver
+  socket.on('gameOver', function(data) {
+    console.log('\nGame Ended:\n', data, '\n');
+    socket // emit to target clients (by socketId)
+      .to(
+        clients[clients.map(user => user.user_id).indexOf(data.winner)].socketId
+      )
+      .emit('gameOver', data);
+    socket
+      .to(
+        clients[clients.map(user => user.user_id).indexOf(data.loser)].socketId
+      )
+      .emit('gameOver', data);
   });
 });
