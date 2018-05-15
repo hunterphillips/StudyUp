@@ -67,4 +67,9 @@ angular
       $scope.matches.push(data);
       $scope.notification = true;
     });
+
+    // Listen for gameover events,
+    socketio.on('gameOver', data => {
+      console.log('GAMEOVER in HomeCtrl?', data);
+    });
   });

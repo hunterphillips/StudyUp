@@ -13,6 +13,12 @@ angular.module('StudyUp').factory('QuizFactory', $http => {
       });
     },
 
+    getMatchInfo(id) {
+      return $http.get(`/match/${id}`).then(match => {
+        return match.data;
+      });
+    },
+
     submitScore(obj) {
       return $http.post('/quiz/', obj).then(data => {
         return data;

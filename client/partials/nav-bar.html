@@ -1,10 +1,5 @@
-<!-- <h2 class="page-header">StudyUp</h2> -->
-
 <nav ng-show="showNav" class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <!-- <img src="../styles/images/logo1.png"> -->
-    <!-- height: 1.5em; position: absolute; top: .8em; left: .35em; -->
-
     <a class="navbar-item logo" ng-href="#!/home">StudyUp</a>
     <h2 class="nav-header">{{title}}
       <span class="nav-score">
@@ -13,13 +8,15 @@
 
     <div class="dropdown is-right navbar-item nav-menu" ng-class="{'is-active': show}" ng-click="show = !show">
       <div class="dropdown-trigger">
-        <but2ton class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-          <span>Menu</span>
+        <button class="menu-btn" aria-haspopup="true" aria-controls="dropdown-menu">
+          <img src="../styles/images/list.png" alt="">
+          <!-- <img src="../styles/images/menu.png" alt=""> -->
           <span class="icon is-small notify-icn" ng-show="notification">
             <img src="../styles/images/chat.png" alt="">
           </span>
-          </button>
+        </button>
       </div>
+      <!-- menu content -->
       <div class="dropdown-menu" id="dropdown-menu" role="menu">
         <div class="dropdown-content">
           <a href="#!/course/{{match.course_id}}/?user={{user.id}}" class="dropdown-item" ng-show="matches.length" ng-repeat="match in matches">
@@ -34,6 +31,7 @@
           </a>
         </div>
       </div>
+      <!-- /menu content -->
     </div>
 
   </div>

@@ -1,14 +1,14 @@
 'use strict';
 angular
   .module('StudyUp')
-  .controller('QuizCtrl', function (
+  .controller('QuizCtrl', function(
     $scope,
     QuizFactory,
     $routeParams,
     $location,
     $timeout,
-    $interval
-    // socketio
+    $interval,
+    socketio
   ) {
     //initialize
     $scope.questions = [];
@@ -16,16 +16,17 @@ angular
     $scope.Timer = null;
     $scope.score = 0; // track quiz results
 
-    $scope.$on('handleBroadcast', function (event, currentUser) {
+    $scope.$on('handleBroadcast', function(event, currentUser) {
       $scope.user = currentUser;
+      $scope.showNav = true;
+      $scope.quizView = true;
     });
 
-    $scope.$on('$viewContentLoaded', function () {
+    $scope.$on('$viewContentLoaded', function() {
       QuizFactory.getQuizInfo(+$routeParams.id, $routeParams.match).then(
         quiz => {
           $scope.timerCount = 15; // initialize timer
-          $scope.StartTimer();
-          $scope.matchId = quiz.match;
+          // $scope.StartTimer();
           $scope.questions = quiz.questions;
           shuffleArray($scope.questions);
           // apply default 'selected' value to each group of question answers
@@ -37,15 +38,18 @@ angular
         }
       );
       QuizFactory.getOpponentInfo($routeParams.opponent).then(foundOpponent => {
-        // console.log('QuizCtrl returned opponent', foundOpponent);
         $scope.opponent = foundOpponent;
+      });
+      QuizFactory.getMatchInfo($routeParams.match).then(match => {
+        $scope.matchId = match.id;
+        $scope.matchScore = match.score;
       });
     });
 
     //Timer start function.
-    $scope.StartTimer = function () {
+    $scope.StartTimer = function() {
       $scope.timeUp = false;
-      $scope.Timer = $interval(function () {
+      $scope.Timer = $interval(function() {
         if ($scope.timerCount === 0) {
           $scope.select();
         } else {
@@ -55,7 +59,7 @@ angular
     };
 
     //Timer stop function.
-    $scope.StopTimer = function () {
+    $scope.StopTimer = function() {
       $scope.timeUp = true;
       //Cancel the Timer.
       if (angular.isDefined($scope.Timer)) {
@@ -72,7 +76,7 @@ angular
     };
 
     // update 'selected' value for this question's answers
-    $scope.select = function () {
+    $scope.select = function() {
       $scope.StopTimer();
       // if nothing selected
       if (!this.answer) {
@@ -88,40 +92,69 @@ angular
       }
     };
 
+    // right answer award user + 2, else - 1
     const updateQuizScore = result => {
       if (result === true) {
         result = 1;
         $scope.user.score += 2;
       } else {
         result = 0;
-        $scope.user.score += -1;
+        if ($scope.user.score > 0) {
+          $scope.user.score += -1; // minimun user score = 0
+        }
       }
       $scope.score += result;
     };
 
     const nextQuestion = () => {
-      $timeout(function () {
+      $timeout(function() {
         $scope[`selected0`] = false; // initialize 'none selected' to false
         $scope.timerCount = 15; // reset timer value
         $scope.StartTimer();
         $scope.currentQuestion += 1;
         if ($scope.currentQuestion === $scope.questions.length) {
           // convert quiz score to %
-          $scope.score = $scope.score / $scope.questions.length * 100;
+          $scope.scoreGrade = $scope.score / $scope.questions.length * 100;
           $scope.completed = true;
-          QuizFactory.submitScore({ user_id: $scope.user.id, result: $scope.user.score });
+          QuizFactory.submitScore({
+            user_id: $scope.user.id,
+            result: $scope.user.score
+          });
+          determineWinner();
         }
       }, 1800);
       $timeout.cancel();
     };
 
+    // Check match score, announce winner if valid
+    const determineWinner = () => {
+      if ($scope.matchScore != null) {
+        if ($scope.matchScore < $scope.score) {
+          $scope.won = true;
+          socketio.emit('gameOver', {
+            winner: $scope.user.id,
+            loser: $scope.opponent.id
+          });
+        } else if ($scope.matchScore > $scope.score) {
+          $scope.lost = true;
+          socketio.emit('gameOver', {
+            winner: $scope.opponent.id,
+            loser: $scope.user.id
+          });
+        }
+      } else {
+        return null;
+      }
+    };
+
     // end quiz, take user to course menu
-    $scope.endGame = () => {
+    $scope.endUserGame = () => {
       QuizFactory.endUserMatch($scope.matchId, {
         user_id: $scope.user.id,
-        match_id: $scope.matchId
+        match_id: $scope.matchId,
+        finalScore: $scope.score
       }).then(() => {
-        console.log('match ended');
+        console.log('user_match ended');
       });
     };
   });

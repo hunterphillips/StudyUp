@@ -29,9 +29,11 @@
   </div>
   <!-- Finished Quiz -->
   <div class="finished-container question-wrap" ng-show="completed">
-    <h1>Results</h1>
-    <p>{{score}} %</p>
-    <a href back ng-click="endGame()">Back to Course menu</a>
+    <h1 class="finished-header" ng-show="won">YOU WIN!</h1>
+    <h1 class="finished-header" ng-show="lost">YOU LOSE!</h1>
+    <h1 class="sub-header">Results</h1>
+    <p>{{scoreGrade}} %</p>
+    <a class="finished-a" href back ng-click="endUserGame()">Back to Course menu</a>
   </div>
 
 </section>
