@@ -21,16 +21,12 @@ Then follow these steps:
 
 1.  Fork and clone the repo onto your machine
 
-```
-https://github.com/hunterphillips/StudyUp.git
-```
+`https://github.com/hunterphillips/StudyUp.git`
 
 1.  CD into the project folder directory and run `npm install` to download the required dependencies
 1.  Initialize the database
 
-```
-node build-db.js  
-```
+`node build-db.js`
 
 1.  In your terminal run `npm run dev`
 
