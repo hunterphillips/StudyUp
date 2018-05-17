@@ -6,7 +6,7 @@ const session = require('express-session');
 const passport = require('passport');
 
 const routes = require('./server/routes/');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const app = express();
 
@@ -42,7 +42,7 @@ app.use(bodyParser.json());
 app.use(routes);
 
 // save server in variable to pass to socket.io
-const server = app.listen(3000, () => {
+const server = app.listen(5000, () => {
   console.log(`server listening on port ${port}`);
 });
 
