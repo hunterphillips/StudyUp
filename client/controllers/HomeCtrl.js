@@ -64,6 +64,7 @@ angular
 
     // Listen for newMatch event, add to user notifications
     socketio.on('newMatch', data => {
+      console.log('HomeCtrl newMatch', data);
       $scope.matches.push(data);
       $scope.notification = true;
     });

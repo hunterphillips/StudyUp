@@ -2,18 +2,15 @@
   <div class="navbar-brand">
     <a class="navbar-item logo" ng-href="#!/home">StudyUp</a>
     <h2 class="nav-header">{{title}}
-      <span class="nav-score">
+      <span class="nav-score" ng-hide="leaderboard">
         <span class="nav-score-text">Points earned:</span> {{user.score}}</span>
     </h2>
 
     <div class="dropdown is-right navbar-item nav-menu" ng-class="{'is-active': show}" ng-click="show = !show">
       <div class="dropdown-trigger">
         <button class="menu-btn" aria-haspopup="true" aria-controls="dropdown-menu">
-          <img src="../styles/images/list.png" alt="">
-          <!-- <img src="../styles/images/menu.png" alt=""> -->
-          <span class="icon is-small notify-icn" ng-show="notification">
-            <img src="../styles/images/chat.png" alt="">
-          </span>
+          <img class="menu-icn" src="../styles/images/list.png" alt="">
+          <span class="icon notify-icn" ng-show="notification"></span>
         </button>
       </div>
       <!-- menu content -->

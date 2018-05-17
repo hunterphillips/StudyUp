@@ -20,6 +20,10 @@ angular
         templateUrl: 'partials/quiz.html',
         controller: 'QuizCtrl'
       })
+      .when('/leaderboard', {
+        templateUrl: 'partials/board.html',
+        controller: 'BoardCtrl'
+      })
       .otherwise('/');
   })
 

@@ -7,7 +7,8 @@
 .sub-header {
   font-size: 1.1em;
   line-height: 2em;
-  background-color: #e8e8e8;
+  background-color: #e8e8e8de;
+  color: #3e5665ad;
 }
 
 .valid-msg {
@@ -41,12 +42,11 @@
   display: block;
   line-height: 0.5em;
   font-size: 0.8em;
-  color: #7bb4ff;
+  color: #ff9c7b;
   padding-top: 0.5em;
 }
 .nav-score-text {
-  font-size: 0.585em;
-  color: #ff9c7b;
+  font-size: 0.59em;
   vertical-align: bottom;
   line-height: 0.7em;
   letter-spacing: 0.3px;
@@ -61,14 +61,36 @@
   background: none;
 }
 
+.menu-icn {
+  height: 2.3em;
+  opacity: 0.75;
+  transition: all linear 0.2s;
+}
+.menu-icn:hover {
+  opacity: 0.93;
+}
+
+.notify-icn {
+  background: #ff6767;
+  border-radius: 50%;
+  height: 0.8em;
+  width: 0.8em;
+  position: absolute;
+  top: 1.1em;
+  right: 0.1em;
+}
+
 .logo {
   font-family: magetta;
   font-size: 1.4em;
   font-weight: 600;
-  // color: #717171;
   color: #5c7686ed;
   text-align: center;
   z-index: 2;
+  transition: all 0.3s ease-in-out;
+}
+.logo:hover {
+  color: #fbfbfb70 !important;
 }
 
 @font-face {
@@ -99,24 +121,28 @@
   display: block;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  line-height: 3.5em;
+  opacity: 0.78;
+  transition: all 0.2s ease-in-out;
 }
 
 .bottom-navbar a:hover {
-  // background-color: #ddd;
-  // color: black;
-}
-
-.bottom-navbar a.active {
-  // background-color: #4caf50;
-  color: white;
+  opacity: 1;
 }
 
 .home-icn {
   height: 1.5em;
   vertical-align: middle;
+}
+.trophy-icn {
+  width: 1.6em;
+  vertical-align: middle;
+  height: 1.5em;
+}
+.back-icn {
+  height: 1.51em;
 }
 
 // ------ Registration / Login ------ //
@@ -320,6 +346,10 @@
   margin-bottom: 0.75em;
 }
 
+.match-listing a {
+  text-transform: none;
+}
+
 .match-btn {
   border: none;
   background: #34e4b7;
@@ -458,4 +488,55 @@ svg circle {
   line-height: 2.5em;
   border-radius: 5px;
   color: white;
+}
+
+// ------ Leaderboard ------ //
+.board-container {
+}
+
+.board-label {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0px 14% 0px 7%;
+  line-height: 3.5em;
+  background-color: #e8e8e8de;
+  color: #3e5665ad;
+  margin-top: -2em;
+}
+
+.board-list-wrap {
+  background: linear-gradient(#f94e46, #ffcab1);
+  font-weight: 500;
+}
+
+.board-listing {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 0px 14% 0px 7%;
+  line-height: 3em;
+  border-bottom: 1px solid #d9d9d95c;
+  color: white;
+}
+
+.board-ranking {
+  flex-basis: 25%;
+  min-width: 4em;
+  max-width: 10em;
+  text-align: center;
+}
+.board-title {
+  flex-basis: 75%;
+  min-width: 10em;
+  padding-left: 0.5em;
+}
+.board-score {
+  text-align: center;
+  min-width: 2.5em;
+}
+
+.board-listing .board-title {
+  color: white;
+}
+.board-listing .board-title:hover {
+  opacity: 0.75;
 }

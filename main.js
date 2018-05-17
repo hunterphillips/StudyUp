@@ -50,7 +50,13 @@ const server = app.listen(3000, () => {
 const socket = require('socket.io');
 const io = socket(server);
 // Store clients
-const clients = [];
+const clients = [
+  { user_id: 1, socketId: 1 },
+  { user_id: 2, socketId: 2 },
+  { user_id: 3, socketId: 3 },
+  { user_id: 4, socketId: 4 },
+  { user_id: 5, socketId: 5 }
+];
 
 // event handling
 io.on('connection', socket => {

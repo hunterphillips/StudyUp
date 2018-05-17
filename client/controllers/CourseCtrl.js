@@ -86,7 +86,7 @@ angular
         quiz: $scope.selectedQuiz,
         challenger: $scope.user.id,
         opponent: +$scope.selectedOpponent,
-        course: $scope.courseId,
+        course_id: $scope.courseId,
         score: null
       };
       CourseFactory.postNewMatch(match).then(newMatch => {

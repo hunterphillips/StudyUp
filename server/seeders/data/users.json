@@ -1,46 +1,67 @@
 {
   "users": [
     {
-      "username": "John",
-      "role_id": 1,
+      "username": "Arwa SK",
+      "role_id": 2,
       "email": "a@a.com",
       "password": "password123",
-      "score": 0
+      "score": 10
     },
     {
-      "username": "Billy",
+      "username": "The Joes",
       "role_id": 2,
       "email": "a@b.com",
       "password": "password123",
-      "score": 0
+      "score": 51
     },
     {
-      "username": "Bobby",
+      "username": "Valyrian Steelers",
       "role_id": 2,
       "email": "a@c.com",
       "password": "password123",
-      "score": 0
+      "score": 15
     },
     {
-      "username": "Smith",
-      "role_id": 1,
+      "username": "Eddy Spaghetti",
+      "role_id": 2,
       "email": "a@d.com",
       "password": "password123",
-      "score": 0
+      "score": 25
     },
     {
-      "username": "Susie",
+      "username": "bengreen",
       "role_id": 2,
       "email": "a@e.com",
       "password": "password123",
-      "score": 0
+      "score": 104
     },
     {
-      "username": "Sally",
+      "username": "|3_Marcantel",
       "role_id": 2,
       "email": "a@f.com",
       "password": "password123",
-      "score": 0
+      "score": 78
+    },
+    {
+      "username": "iiimosley",
+      "role_id": 2,
+      "email": "a@g.com",
+      "password": "password123",
+      "score": 12
+    },
+    {
+      "username": "Wolfcale",
+      "role_id": 2,
+      "email": "a@h.com",
+      "password": "password123",
+      "score": 2
+    },
+    {
+      "username": "Castelloe",
+      "role_id": 2,
+      "email": "a@i.com",
+      "password": "password123",
+      "score": 11
     }
   ]
 }

@@ -26,7 +26,7 @@ angular
       QuizFactory.getQuizInfo(+$routeParams.id, $routeParams.match).then(
         quiz => {
           $scope.timerCount = 15; // initialize timer
-          // $scope.StartTimer();
+          $scope.StartTimer();
           $scope.questions = quiz.questions;
           shuffleArray($scope.questions);
           // apply default 'selected' value to each group of question answers

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports.addMatch = (
-  { app, body: { quiz, challenger, opponent, course, score } },
+  { app, body: { quiz, challenger, opponent, course_id, score } },
   res,
   next
 ) => {
@@ -9,7 +9,7 @@ module.exports.addMatch = (
   const { Match, User } = app.get('models');
   Match.create({
     quiz_id: quiz,
-    course_id: course,
+    course_id: course_id,
     challenger_id: challenger,
     opponent_id: opponent,
     score: score

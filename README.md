@@ -2,9 +2,9 @@
 
 StudyUp is a full-stack web application and concept mobile app designed for high school and college students that allows users to challenge one another with trivia-style quizzes based on course material.
 
-<!-- ![Home screen](https://github.com/hunterphillips/countdown/blob/master/images/homeScreenshot.jpg) -->
+The application backend is built with Node.js and Express. Realtime interaction between clients is handled with Socket.IO
 
-<!-- ## Start Timer -->
+![Course screen](./client/styles/images/course-screen.png)
 
 <!-- Download the [app](https://github.com/hunterphillips/countdown/releases/tag/1.0.0)! -->
 
@@ -26,7 +26,7 @@ Then follow these steps:
 
 ### Game Example:
 
-<!-- ![quiz screen](https://github.com/hunterphillips/countdown/blob/master/images/clock-screenshot.jpg) -->
+![Game screen](./client/styles/images/game-screen.png)
 
 ## Built With
 

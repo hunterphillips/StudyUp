@@ -1,0 +1,26 @@
+<navbar></navbar>
+
+<div class="course-containter board-container">
+  <!-- leaderboard section -->
+  <div class="board-section">
+    <div class="board-label">
+      <span class="board-ranking">Rank</span>
+      <span class="board-title">Username</span>
+      <span class="board-score">Score</span>
+    </div>
+
+    <div class="board-list-wrap">
+      <div class="board-listing" ng-repeat="student in students | orderBy: '-score'">
+        <span class="board-ranking">{{$index+1}}</span>
+        <a href="" class="board-title">{{student.username}}</a>
+        <span class="board-score">{{student.score}}</span>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<footer></footer>

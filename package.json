@@ -7,8 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-db": "node build-db.js",
     "sass": "node-sass client/sass/ -o client/css/",
+    "watch-css": "nodemon -e scss -x \"npm run sass\"",
     "lint": "eslint --color **/*.js --ignore-pattern node_modules/",
-    "dev": "concurrently \"nodemon main.js\" \"rerun-script\""
+    "dev": "nodemon main.js"
   },
   "watches": {
     "sass": ["client/sass/*.scss"],
@@ -32,7 +33,6 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "bulma": "^0.7.1",
-    "concurrently": "^3.5.1",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
@@ -41,6 +41,7 @@
     "passport-local": "^1.0.0",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
+    "postcss-cli": "^5.0.0",
     "sequelize": "^4.37.6",
     "socket.io": "^2.1.0"
   },
