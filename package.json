@@ -4,6 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
+    "start": "node main.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-db": "node build-db.js",
     "sass": "node-sass client/sass/ -o client/css/",
@@ -47,5 +48,9 @@
   },
   "devDependencies": {
     "rerun-script": "^0.6.0"
+  },
+  "engines": {
+    "node": "8.9.1",
+    "npm": "5.7.1"
   }
 }
