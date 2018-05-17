@@ -4,7 +4,7 @@ StudyUp is a full-stack web application and concept mobile app designed for high
 
 The application backend is built with Node.js and Express. Realtime interaction between clients is handled with Socket.IO
 
-![Course screen](./client/styles/images/course-screen.png)
+![Course screen](./client/styles/images/course.png)
 
 <!-- Download the [app](https://github.com/hunterphillips/countdown/releases/tag/1.0.0)! -->
 
@@ -26,7 +26,7 @@ Then follow these steps:
 
 ### Game Example:
 
-![Game screen](./client/styles/images/game-screen.png)
+![Game screen](./client/styles/images/game.png)
 
 ## Built With
 
