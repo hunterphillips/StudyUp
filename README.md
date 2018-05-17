@@ -50,7 +50,7 @@ Then follow these steps:
 
 ### Game Example:
 
-![Game screen](./client/styles/images/game.png)
+![Game screen](./client/styles/images/game.png) ![Leaderboard screen](./client/styles/images/board.png)
 
 ## Built With
 
