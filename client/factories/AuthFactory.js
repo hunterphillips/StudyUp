@@ -8,14 +8,12 @@ angular
     return {
       createUser(userObj) {
         return $http.post('/register', userObj).then(userData => {
-          // console.log('new user added', userData);
           currentUser = userData;
           return userData.data;
         });
       },
 
       loginUser(userObj) {
-        // console.log('userObj', userObj);
         return $http.post('/login', userObj).then(user => {
           currentUser = user.data;
           $http.get('/home');
@@ -40,7 +38,6 @@ angular
           .then(user => {
             if (user) {
               currentUser = user.data;
-              // $http.get('/home');
             } else {
               currentUser = null;
             }

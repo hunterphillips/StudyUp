@@ -57,6 +57,24 @@ angular
       };
     }
   ])
+  // Logout Directive
+  .directive('logout', [
+    '$location',
+    'AuthFactory',
+    function($location, AuthFactory) {
+      return {
+        restrict: 'A',
+        link: function(scope, elem) {
+          elem.bind('click', function() {
+            AuthFactory.logoutUser().then(() => {
+              console.log('User logged out');
+              $location.path(`/`);
+            });
+          });
+        }
+      };
+    }
+  ])
 
   // service to wrap the socket object returned by Socket.IO
   .factory('socketio', [
@@ -86,8 +104,7 @@ angular
     }
   ]);
 
-// On page refresh, the currentUser set in the auth factory is lost. We ask the backend for the user stored in session -> listen for a route change and call a method that pings the backend for the logged-in user, then broadcast that information via a custom event to the listening controllers
-//
+// On refresh, the currentUser in auth factory is lost. We ask the backend for the user stored in session -> listen for a route change and call a method that pings the backend for the logged-in user, then broadcast that information via a custom event to the listening controllers
 angular
   .module('StudyUp')
   .run(($rootScope, $location, $route, $window, AuthFactory) => {
@@ -98,13 +115,3 @@ angular
       });
     });
   });
-
-//
-//
-// TODO: loading gif
-// $scope.setDelay = function() {
-//   $scope.delay = true;
-//   $timeout(function() {
-//     $scope.delay = false;
-//   }, 1000);
-// };

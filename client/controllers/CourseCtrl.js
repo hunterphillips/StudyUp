@@ -13,8 +13,6 @@ angular
       $scope.showNav = true;
     });
 
-    // console.log('Course Scope', $scope);
-
     // emits once the ngView content is loaded
     $scope.$on('$viewContentLoaded', function() {
       CourseFactory.getCourseInfo(+$routeParams.id, $routeParams.user).then(
@@ -90,7 +88,6 @@ angular
         score: null
       };
       CourseFactory.postNewMatch(match).then(newMatch => {
-        console.log('match added', newMatch);
         socketio.emit('newMatch', match);
         $location.path(`/quiz/${$scope.selectedQuiz}`).search({
           match: newMatch.data[0][0].MatchId,
@@ -111,8 +108,7 @@ angular
     };
 
     //add match when notified
-    socketio.on('newMatch', data => {
-      console.log('CourseCtrl newMatch', data);
+    socketio.on('newMatch', () => {
       CourseFactory.getCourseInfo(+$routeParams.id, $routeParams.user).then(
         course => {
           $scope.classMates = course.users;

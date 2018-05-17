@@ -6,23 +6,47 @@ The application backend is built with Node.js and Express. Realtime interaction 
 
 ![Course screen](./client/styles/images/course.png)
 
-<!-- Download the [app](https://github.com/hunterphillips/countdown/releases/tag/1.0.0)! -->
-
-<!-- #### OR -->
-
 ## Local Installation:
 
 To get the application up and running on your machine, you'll need to have the following installed on your system:
 
 * [npm](https://www.npmjs.com/)
 * [node.js](https://nodejs.org/en/)
+* [Postgres](https://postgresql.org/) _requires an account_
 
 Then follow these steps:
 
 1.  Fork and clone the repo onto your machine `https://github.com/hunterphillips/StudyUp.git`
-1.  CD into the project folder directory and run `npm install` to download the required dependencies
-1.  Initialize the database `node build-db.js`
-1.  In your terminal run `npm run dev`
+2.  CD into the project folder directory and run `npm install` to download the required dependencies
+3.  Add a directory and file titled `config` in the server directory:
+
+```
+ {
+        "development": {
+          "username": "your username here",
+          "password": "your password here",
+          "database": "final-wrkout",
+          "dialect": "postgres"
+        },
+        "test": {
+          "username": "root",
+          "password": null,
+          "database": "database_test",
+          "host": "127.0.0.1",
+          "dialect": "mysql"
+        },
+        "production": {
+          "username": "root",
+          "password": null,
+          "database": "database_production",
+          "host": "127.0.0.1",
+          "dialect": "mysql"
+        }
+      }
+```
+
+4.  Initialize the database `node build-db.js`
+5.  In your terminal run `npm run dev`
 
 ### Game Example:
 

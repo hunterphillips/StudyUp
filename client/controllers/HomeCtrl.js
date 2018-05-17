@@ -30,7 +30,6 @@ angular
         user_id: $scope.user.id,
         course_id: this.course.id
       }).then(() => {
-        console.log('Course added');
         getCurrentSchedule();
       });
     };
@@ -55,16 +54,8 @@ angular
       });
     };
 
-    $scope.logout = () => {
-      AuthFactory.logoutUser().then(() => {
-        console.log('User logged out');
-        $location.path(`/`);
-      });
-    };
-
     // Listen for newMatch event, add to user notifications
     socketio.on('newMatch', data => {
-      console.log('HomeCtrl newMatch', data);
       $scope.matches.push(data);
       $scope.notification = true;
     });

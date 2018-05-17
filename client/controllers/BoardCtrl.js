@@ -15,7 +15,6 @@ angular.module('StudyUp').controller('BoardCtrl', function(
 
   $scope.$on('$viewContentLoaded', () => {
     BoardFactory.getStudents().then(foundStudents => {
-      console.log('BoardCtrl students', foundStudents);
       $scope.students = foundStudents;
     });
   });

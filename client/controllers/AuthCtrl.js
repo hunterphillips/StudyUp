@@ -1,13 +1,12 @@
 'use strict';
 angular
   .module('StudyUp')
-  .controller('AuthCtrl', function ($scope, AuthFactory, $location) {
+  .controller('AuthCtrl', function($scope, AuthFactory, $location) {
     $scope.account = {};
 
     $scope.register = () => {
       $scope.errorMsg = '';
       if ($scope.newAccount.password !== $scope.newAccount.passwordConf) {
-        // console.log('bad match');
         $scope.errorMsg =
           "Password and confirmation don't match. Please try again";
         return null;
