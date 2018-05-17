@@ -109,4 +109,30 @@ angular
         .path(`/quiz/${this.match.quiz_id}`)
         .search({ match: this.match.id, opponent: opponentId });
     };
+
+    //add match when notified
+    socketio.on('newMatch', data => {
+      console.log('CourseCtrl newMatch', data);
+      CourseFactory.getCourseInfo(+$routeParams.id, $routeParams.user).then(
+        course => {
+          $scope.classMates = course.users;
+          // filter current user out of class list
+          $scope.classMates = $scope.classMates.filter(user => {
+            if (user.id === $scope.user.id) {
+              return false;
+            } else {
+              return true;
+            }
+          });
+          // filter current course matches out of matchlist
+          course.matches = filterMatchesByCourse(
+            course.matches,
+            course.quizzes
+          );
+          // get classmate names for matches
+          matchOpponents(course.matches, $scope.classMates);
+          $scope.matches = course.matches;
+        }
+      );
+    });
   });

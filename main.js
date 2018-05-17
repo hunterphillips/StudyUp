@@ -55,7 +55,12 @@ const clients = [
   { user_id: 2, socketId: 2 },
   { user_id: 3, socketId: 3 },
   { user_id: 4, socketId: 4 },
-  { user_id: 5, socketId: 5 }
+  { user_id: 5, socketId: 5 },
+  { user_id: 6, socketId: 6 },
+  { user_id: 7, socketId: 7 },
+  { user_id: 8, socketId: 8 },
+  { user_id: 9, socketId: 9 },
+  { user_id: 10, socketId: 10 }
 ];
 
 // event handling
