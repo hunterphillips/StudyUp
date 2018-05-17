@@ -42,7 +42,7 @@ app.use(bodyParser.json());
 app.use(routes);
 
 // save server in variable to pass to socket.io
-const server = app.listen(5000, () => {
+const server = app.listen(port, () => {
   console.log(`server listening on port ${port}`);
 });
 
