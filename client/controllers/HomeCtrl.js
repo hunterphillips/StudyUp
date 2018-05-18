@@ -62,6 +62,18 @@ angular
 
     // Listen for gameover events,
     socketio.on('gameOver', data => {
-      console.log('GAMEOVER in HomeCtrl?', data);
+      if (data.winner === $scope.user.id) {
+        $scope.matchMessage = 'You won a match! +10';
+      } else {
+        $scope.matchMessage = 'You win some you lose some, -5';
+      }
+      $scope.notification = true;
     });
+
+    $scope.removeMsg = function() {
+      $scope.matchMessage = false;
+      if (!$scope.matches.length) {
+        $scope.notification = false;
+      }
+    };
   });

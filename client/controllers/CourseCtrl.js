@@ -111,15 +111,6 @@ angular
     socketio.on('newMatch', () => {
       CourseFactory.getCourseInfo(+$routeParams.id, $routeParams.user).then(
         course => {
-          $scope.classMates = course.users;
-          // filter current user out of class list
-          $scope.classMates = $scope.classMates.filter(user => {
-            if (user.id === $scope.user.id) {
-              return false;
-            } else {
-              return true;
-            }
-          });
           // filter current course matches out of matchlist
           course.matches = filterMatchesByCourse(
             course.matches,

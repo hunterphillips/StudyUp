@@ -19,7 +19,7 @@
           <a href="#!/course/{{match.course_id}}/?user={{user.id}}" class="dropdown-item" ng-show="matches.length" ng-repeat="match in matches">
             New active game
           </a>
-          <a href class="dropdown-item" ng-show="matchMessage">
+          <a href class="dropdown-item" ng-show="matchMessage" ng-click="removeMsg()">
             {{matchMessage}}
           </a>
           <a class="dropdown-item" href logout>

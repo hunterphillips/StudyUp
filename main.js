@@ -81,6 +81,7 @@ io.on('connection', socket => {
 
   // listen for 'newMatch' event (defined on front end)
   socket.on('newMatch', function(data) {
+    console.log('newMatch mainjs', data);
     socket // emit to target client (by socketId)
       .to(
         clients[clients.map(user => user.user_id).indexOf(data.opponent)]
