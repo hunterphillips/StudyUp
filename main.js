@@ -65,15 +65,16 @@ const clients = [
 
 // event handling
 io.on('connection', socket => {
-  socket.emit('newSocket', socket.id); // emit socket id to self client
+  // emit socket id to self (client)
+  socket.emit('newSocket', socket.id);
 
+  // newUser event emitted from client --> contains userId with socketId
   // if user exists -> replace socket id, else add user
   socket.on('newUser', function(data) {
     if (clients.find(client => client.user_id === data.user_id)) {
       clients[
         clients.map(user => user.user_id).indexOf(data.user_id)
-      ].socketId =
-        data.socketId;
+      ].socketId = data.socketId;
     } else {
       clients.push(data);
     }
