@@ -131,12 +131,16 @@ angular
       if ($scope.matchScore != null) {
         if ($scope.matchScore < $scope.score) {
           $scope.won = true;
+          $scope.score += 10;
           socketio.emit('gameOver', {
             winner: $scope.user.id,
             loser: $scope.opponent.id
           });
         } else if ($scope.matchScore > $scope.score) {
           $scope.lost = true;
+          if ($scope.score > 5) {
+            $scope.score += -5;
+          }
           socketio.emit('gameOver', {
             winner: $scope.opponent.id,
             loser: $scope.user.id
