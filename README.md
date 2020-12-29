@@ -1,8 +1,8 @@
 # StudyUp
 
-StudyUp is a concept educational app that allows students to challenge one another with trivia-style quizzes based on course material.
+Concept educational app that allows students to challenge one another with trivia-style quizzes based on course material.
 
-The application backend is built with Node.js and Express. Realtime interaction between clients is handled with Socket.IO
+Built with Node.js and Express. Realtime interaction with Socket.IO
 
 ![Course screen](./client/styles/images/course.png)
 
@@ -68,4 +68,4 @@ Then follow these steps:
 
 * Yaphi Berhanu [JavaScript Quiz](https://www.sitepoint.com/author/yberhanu/)
 
-* [NSS](http://nashvillesoftwareschool.com/) - Incredible web development program in Nashille, TN.
+* [NSS](http://nashvillesoftwareschool.com/) - Web development program in Nashille, TN.
