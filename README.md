@@ -1,6 +1,6 @@
 # StudyUp
 
-StudyUp is a full-stack web application and concept mobile app designed for high school and college students that allows users to challenge one another with trivia-style quizzes based on course material.
+StudyUp is a concept educational app that allows students to challenge one another with trivia-style quizzes based on course material.
 
 The application backend is built with Node.js and Express. Realtime interaction between clients is handled with Socket.IO
 
