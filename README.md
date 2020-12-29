@@ -1,6 +1,6 @@
 # StudyUp
 
-Concept educational app that allows students to challenge one another with trivia-style quizzes based on course material.
+Concept educational app that allows students to challenge one another with trivia-style quizzes.
 
 Built with Node.js and Express. Realtime interaction with Socket.IO
 
